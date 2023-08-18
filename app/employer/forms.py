@@ -7,7 +7,7 @@ from app.employer.models import Employer
 
 
 def validate_phone(value):
-    if not re.match("[0-9]{11}", value):
+    if not re.match("[0-9]{11}", str(value)):
         raise ValidationError("Deve ter 11 dígitos.")
 
     return value
