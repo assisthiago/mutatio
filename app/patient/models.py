@@ -17,12 +17,13 @@ class Diagnosis(models.Model):
 
 
 class Patient(models.Model):
-    name = models.CharField("nome", max_length=100)
+    name = models.CharField("nome completo", max_length=100)
     age = models.IntegerField("idade")
     room = models.CharField("enfermaria/leito", max_length=10)
     medical_record = models.IntegerField("prontuário")
     hospitalized_in = models.DateField("data da internação")
     sorted_in = models.DateField("data da triagem")
+    released = models.BooleanField("alta médica", default=False)
     created_at = models.DateTimeField("criado em", auto_now_add=True)
     updated_at = models.DateTimeField("atualizado em", auto_now=True)
 

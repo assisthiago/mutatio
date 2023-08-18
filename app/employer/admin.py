@@ -13,7 +13,7 @@ class EmployerAdmin(admin.ModelAdmin):
     ordering = ["user__first_name"]
 
     search_fields = ["user__first_name", "user__last_name", "user__email"]
-    search_help_text = "Busque pelo nome, sobrenome ou e-mail."
+    search_help_text = "Busque pelo nome e/ou sobrenome ou e-mail."
 
     @admin.display(ordering="user__first_name", description="nome")
     def get_name(self, obj):
