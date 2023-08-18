@@ -13,7 +13,7 @@ def validate_phone(value):
     return value
 
 
-class Form(forms.ModelForm):
+class EmployerForm(forms.ModelForm):
     phone = forms.IntegerField(
         label="telefone", validators=[validate_phone], widget=forms.TextInput
     )

@@ -2,7 +2,8 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.test import TestCase
 
-from app.employer.forms import Form, validate_phone
+from app.employer.admin import EmployerAdmin, admin
+from app.employer.forms import EmployerForm, validate_phone
 from app.employer.models import Employer
 
 
@@ -33,7 +34,7 @@ class ModelTest(TestCase):
 
 class FormTest(TestCase):
     def setUp(self):
-        self.form = Form()
+        self.form = EmployerForm()
 
     def test_form_has_fields(self):
         expected = ["user", "phone"]
@@ -48,3 +49,11 @@ class FormTest(TestCase):
     def test_validate_phone_invalid(self):
         with self.assertRaises(ValidationError):
             validate_phone("2I999999999")
+
+
+class AdminTest(TestCase):
+    def setUp(self):
+        self.admin = EmployerAdmin(Employer, admin.site)
+
+    def test_has_form(self):
+        self.assertTrue(self.admin.form)
