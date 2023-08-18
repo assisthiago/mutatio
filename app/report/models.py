@@ -1,10 +1,17 @@
+from auditlog.models import AuditlogHistoryField
+from auditlog.registry import auditlog
 from django.db import models
 
-from app.employer.models import Employer
 from app.patient.models import Patient
 
 
 class Report(models.Model):
+    patient = models.ForeignKey(
+        Patient,
+        on_delete=models.CASCADE,
+        related_name="reports",
+        verbose_name="paciente",
+    )
     ventilation_mode = models.CharField("modo ventilatório", max_length=100)
     initial_nutritional_route = models.CharField(
         "via nutricional inicial", max_length=100
@@ -16,13 +23,7 @@ class Report(models.Model):
     created_at = models.DateTimeField("criado em", auto_now_add=True)
     updated_at = models.DateTimeField("atualizado em", auto_now=True)
 
-    # Relationships
-    patient = models.ForeignKey(
-        Patient,
-        on_delete=models.CASCADE,
-        related_name="reports",
-        verbose_name="paciente",
-    )
+    history = AuditlogHistoryField()
 
     def __str__(self) -> str:
         return f"Relatório {self.created_at.strftime('%Y%m%d')}"
@@ -31,3 +32,6 @@ class Report(models.Model):
         db_table = "report"
         verbose_name = "relatório"
         verbose_name_plural = "relatórios"
+
+
+auditlog.register(Report)
