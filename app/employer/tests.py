@@ -53,7 +53,25 @@ class FormTest(TestCase):
 
 class AdminTest(TestCase):
     def setUp(self):
-        self.admin = EmployerAdmin(Employer, admin.site)
+        self.model_admin = EmployerAdmin(Employer, admin.site)
+        self.employer = Employer.objects.create(
+            user=User.objects.create(
+                username="user@test.com",
+                password="zbbc9fi0h!",
+                email="user@test.com",
+                first_name="user",
+                last_name="test",
+            ),
+            phone="21996643040",
+        )
 
     def test_has_form(self):
-        self.assertTrue(self.admin.form)
+        self.assertTrue(self.model_admin.form)
+
+    def test_get_name(self):
+        expected = self.model_admin.get_name(self.model_admin.model.objects.first())
+        self.assertEqual(expected, "User Test")
+
+    def test_get_email(self):
+        expected = self.model_admin.get_email(self.model_admin.model.objects.first())
+        self.assertEqual(expected, "user@test.com")
