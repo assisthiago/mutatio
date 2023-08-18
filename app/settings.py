@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     "test_without_migrations",
     "app.employer",
     "app.patient",
+    "app.report",
 ]
 
 MIDDLEWARE = [
