@@ -40,6 +40,11 @@ class PatientModelTest(TestCase):
     def test_str(self):
         self.assertEqual(str(self.patient), "Patient Test")
 
+    def test_admin_url(self):
+        self.assertEqual(
+            "/admin/patient/patient/1/change/", self.patient.get_admin_url()
+        )
+
 
 class FormTest(TestCase):
     def setUp(self):
