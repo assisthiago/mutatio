@@ -39,9 +39,7 @@ class ModelTest(TestCase):
         self.assertIsInstance(self.report.patient, Patient)
 
     def test_str(self):
-        self.assertEqual(
-            str(self.report), f"Relatório {self.report.created_at.strftime('%Y%m%d')}"
-        )
+        self.assertEqual(str(self.report), self.report.created_at.strftime("%Y%m%d"))
 
 
 class FormTest(TestCase):
@@ -50,13 +48,13 @@ class FormTest(TestCase):
 
     def test_form_has_fields(self):
         expected = [
+            "patient",
             "ventilation_mode",
             "initial_nutritional_route",
             "actual_nutritional_route",
             "treatment",
             "conduct",
             "observation",
-            "patient",
         ]
         self.assertSequenceEqual(expected, list(self.form.fields))
 
