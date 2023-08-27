@@ -49,7 +49,7 @@ class ReportAdmin(DjangoObjectActions, admin.ModelAdmin):
     )
     def copy_previous_reports(self, request, obj):
         if reports := Report.objects.from_today():
-            self._messages(
+            return self._messages(
                 request,
                 "Existe %d relatório cadastrado para o dia de hoje.",
                 "Existem %d relatórios cadastrados para o dia de hoje.",
@@ -66,7 +66,7 @@ class ReportAdmin(DjangoObjectActions, admin.ModelAdmin):
                 reports_to_copy.append(report)
 
             updated = Report.objects.bulk_create(reports_to_copy)
-            self._messages(
+            return self._messages(
                 request,
                 "%d relatório copiado com sucesso.",
                 "%d relatórios copiados com sucesso.",

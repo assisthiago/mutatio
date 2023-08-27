@@ -33,7 +33,12 @@ class Report(models.Model):
 
     class Meta:
         db_table = "report"
-        unique_together = ["patient", "created_at"]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["patient", "created_at"],
+                name="unique_patient_per_day",
+            )
+        ]
         verbose_name = "relatório"
         verbose_name_plural = "relatórios"
 
