@@ -3,6 +3,7 @@ from auditlog.registry import auditlog
 from django.db import models
 
 from app.patient.models import Patient
+from app.report.managers import ReportManager
 
 
 class Report(models.Model):
@@ -20,16 +21,19 @@ class Report(models.Model):
     treatment = models.CharField("atendimento", max_length=100)
     conduct = models.TextField("conduta", max_length=100)
     observation = models.TextField("observação", max_length=100, default="N/A")
-    created_at = models.DateTimeField("criado em", auto_now_add=True)
-    updated_at = models.DateTimeField("atualizado em", auto_now=True)
+    created_at = models.DateField("criado em", auto_now_add=True)
+    updated_at = models.DateField("atualizado em", auto_now=True)
 
     history = AuditlogHistoryField()
+
+    objects = ReportManager.as_manager()
 
     def __str__(self) -> str:
         return self.created_at.strftime("%Y%m%d")
 
     class Meta:
         db_table = "report"
+        unique_together = ["patient", "created_at"]
         verbose_name = "relatório"
         verbose_name_plural = "relatórios"
 

@@ -1,13 +1,15 @@
-from django.contrib import admin
+from django.contrib import admin, messages
 from django.utils.html import format_html
 from django.utils.safestring import mark_safe
+from django.utils.translation import ngettext
+from django_object_actions import DjangoObjectActions, action
 
 from app.report.forms import ReportForm
 from app.report.models import Report
 
 
 @admin.register(Report)
-class ReportAdmin(admin.ModelAdmin):
+class ReportAdmin(DjangoObjectActions, admin.ModelAdmin):
     form = ReportForm
 
     date_hierarchy = "created_at"
@@ -23,15 +25,12 @@ class ReportAdmin(admin.ModelAdmin):
         "observation",
     ]
 
+    readonly_fields = ["created_at", "updated_at"]
+
     search_fields = ["patient__name"]
     search_help_test = "Busque pelo nome do paciente"
 
     list_filter = ["created_at"]
-
-    def get_form(self, request, *args, **kwargs):
-        form = super(ReportAdmin, self).get_form(request, *args, **kwargs)
-        form.current_user = request.user
-        return form
 
     @admin.display(description="relatóio", ordering="-created_at")
     def get_shift(self, obj):
@@ -42,4 +41,57 @@ class ReportAdmin(admin.ModelAdmin):
         return format_html(
             "{}",
             mark_safe(f"<a href='{obj.patient.get_admin_url()}'>{obj.patient}</a>"),
+        )
+
+    @action(
+        label="Copiar últimos relatórios",
+        description="Copia os últimos relatórios disponíveis dos pacientes que não tiverem altas.",
+    )
+    def copy_previous_reports(self, request, obj):
+        if reports := Report.objects.from_today():
+            self._messages(
+                request,
+                "Existe %d relatório cadastrado para o dia de hoje.",
+                "Existem %d relatórios cadastrados para o dia de hoje.",
+                len(reports),
+                messages.WARNING,
+            )
+
+        if last_reports_availables := Report.objects.last_availables(
+            patient__released=False
+        ):
+            reports_to_copy = []
+            for report in last_reports_availables:
+                report.pk = None
+                reports_to_copy.append(report)
+
+            updated = Report.objects.bulk_create(reports_to_copy)
+            self._messages(
+                request,
+                "%d relatório copiado com sucesso.",
+                "%d relatórios copiados com sucesso.",
+                len(updated),
+                messages.SUCCESS,
+            )
+
+        return self.message_user(
+            request,
+            "Nenhum relatório foi encontrado.",
+            messages.WARNING,
+        )
+
+    changelist_actions = [
+        "copy_previous_reports",
+    ]
+
+    def _messages(self, request, singular_msg, plural_msg, length, level):
+        return self.message_user(
+            request,
+            ngettext(
+                singular_msg,
+                plural_msg,
+                length,
+            )
+            % length,
+            level,
         )
