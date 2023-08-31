@@ -1,0 +1,1008 @@
+[
+    {
+        "model": "admin.logentry",
+        "pk": 1,
+        "fields": {
+            "action_time": "2023-08-27T20:21:53.920Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "1",
+            "object_repr": "Surdez",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 2,
+        "fields": {
+            "action_time": "2023-08-27T20:21:55.319Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "1",
+            "object_repr": "João Doe",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 3,
+        "fields": {
+            "action_time": "2023-08-27T20:22:14.240Z",
+            "user": 1,
+            "content_type": 11,
+            "object_id": "1",
+            "object_repr": "20230827",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 4,
+        "fields": {
+            "action_time": "2023-08-30T20:08:34.039Z",
+            "user": 1,
+            "content_type": 4,
+            "object_id": "2",
+            "object_repr": "test.user",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 5,
+        "fields": {
+            "action_time": "2023-08-30T20:09:00.787Z",
+            "user": 1,
+            "content_type": 4,
+            "object_id": "2",
+            "object_repr": "test.user",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"Email address\", \"Staff status\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 6,
+        "fields": {
+            "action_time": "2023-08-30T20:09:20.468Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "1",
+            "object_repr": "Test User",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 7,
+        "fields": {
+            "action_time": "2023-08-30T20:09:32.800Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "1",
+            "object_repr": "Surdez",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 8,
+        "fields": {
+            "action_time": "2023-08-30T20:10:28.084Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "2",
+            "object_repr": "Test Diagnosis",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 9,
+        "fields": {
+            "action_time": "2023-08-30T20:11:13.195Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "2",
+            "object_repr": "Test Patient",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 10,
+        "fields": {
+            "action_time": "2023-08-30T20:13:03.294Z",
+            "user": 1,
+            "content_type": 11,
+            "object_id": "2",
+            "object_repr": "20230831",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 1,
+        "fields": {
+            "name": "Can add log entry",
+            "content_type": 1,
+            "codename": "add_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 2,
+        "fields": {
+            "name": "Can change log entry",
+            "content_type": 1,
+            "codename": "change_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 3,
+        "fields": {
+            "name": "Can delete log entry",
+            "content_type": 1,
+            "codename": "delete_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 4,
+        "fields": {
+            "name": "Can view log entry",
+            "content_type": 1,
+            "codename": "view_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 5,
+        "fields": {
+            "name": "Can add permission",
+            "content_type": 2,
+            "codename": "add_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 6,
+        "fields": {
+            "name": "Can change permission",
+            "content_type": 2,
+            "codename": "change_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 7,
+        "fields": {
+            "name": "Can delete permission",
+            "content_type": 2,
+            "codename": "delete_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 8,
+        "fields": {
+            "name": "Can view permission",
+            "content_type": 2,
+            "codename": "view_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 9,
+        "fields": {
+            "name": "Can add group",
+            "content_type": 3,
+            "codename": "add_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 10,
+        "fields": {
+            "name": "Can change group",
+            "content_type": 3,
+            "codename": "change_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 11,
+        "fields": {
+            "name": "Can delete group",
+            "content_type": 3,
+            "codename": "delete_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 12,
+        "fields": {
+            "name": "Can view group",
+            "content_type": 3,
+            "codename": "view_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 13,
+        "fields": {
+            "name": "Can add user",
+            "content_type": 4,
+            "codename": "add_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 14,
+        "fields": {
+            "name": "Can change user",
+            "content_type": 4,
+            "codename": "change_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 15,
+        "fields": {
+            "name": "Can delete user",
+            "content_type": 4,
+            "codename": "delete_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 16,
+        "fields": {
+            "name": "Can view user",
+            "content_type": 4,
+            "codename": "view_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 17,
+        "fields": {
+            "name": "Can add content type",
+            "content_type": 5,
+            "codename": "add_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 18,
+        "fields": {
+            "name": "Can change content type",
+            "content_type": 5,
+            "codename": "change_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 19,
+        "fields": {
+            "name": "Can delete content type",
+            "content_type": 5,
+            "codename": "delete_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 20,
+        "fields": {
+            "name": "Can view content type",
+            "content_type": 5,
+            "codename": "view_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 21,
+        "fields": {
+            "name": "Can add session",
+            "content_type": 6,
+            "codename": "add_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 22,
+        "fields": {
+            "name": "Can change session",
+            "content_type": 6,
+            "codename": "change_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 23,
+        "fields": {
+            "name": "Can delete session",
+            "content_type": 6,
+            "codename": "delete_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 24,
+        "fields": {
+            "name": "Can view session",
+            "content_type": 6,
+            "codename": "view_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 25,
+        "fields": {
+            "name": "Can add log entry",
+            "content_type": 7,
+            "codename": "add_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 26,
+        "fields": {
+            "name": "Can change log entry",
+            "content_type": 7,
+            "codename": "change_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 27,
+        "fields": {
+            "name": "Can delete log entry",
+            "content_type": 7,
+            "codename": "delete_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 28,
+        "fields": {
+            "name": "Can view log entry",
+            "content_type": 7,
+            "codename": "view_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 29,
+        "fields": {
+            "name": "Can add empregado",
+            "content_type": 8,
+            "codename": "add_employer"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 30,
+        "fields": {
+            "name": "Can change empregado",
+            "content_type": 8,
+            "codename": "change_employer"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 31,
+        "fields": {
+            "name": "Can delete empregado",
+            "content_type": 8,
+            "codename": "delete_employer"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 32,
+        "fields": {
+            "name": "Can view empregado",
+            "content_type": 8,
+            "codename": "view_employer"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 33,
+        "fields": {
+            "name": "Can add diagnóstico",
+            "content_type": 9,
+            "codename": "add_diagnosis"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 34,
+        "fields": {
+            "name": "Can change diagnóstico",
+            "content_type": 9,
+            "codename": "change_diagnosis"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 35,
+        "fields": {
+            "name": "Can delete diagnóstico",
+            "content_type": 9,
+            "codename": "delete_diagnosis"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 36,
+        "fields": {
+            "name": "Can view diagnóstico",
+            "content_type": 9,
+            "codename": "view_diagnosis"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 37,
+        "fields": {
+            "name": "Can add paciente",
+            "content_type": 10,
+            "codename": "add_patient"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 38,
+        "fields": {
+            "name": "Can change paciente",
+            "content_type": 10,
+            "codename": "change_patient"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 39,
+        "fields": {
+            "name": "Can delete paciente",
+            "content_type": 10,
+            "codename": "delete_patient"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 40,
+        "fields": {
+            "name": "Can view paciente",
+            "content_type": 10,
+            "codename": "view_patient"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 41,
+        "fields": {
+            "name": "Can add relatório",
+            "content_type": 11,
+            "codename": "add_report"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 42,
+        "fields": {
+            "name": "Can change relatório",
+            "content_type": 11,
+            "codename": "change_report"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 43,
+        "fields": {
+            "name": "Can delete relatório",
+            "content_type": 11,
+            "codename": "delete_report"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 44,
+        "fields": {
+            "name": "Can view relatório",
+            "content_type": 11,
+            "codename": "view_report"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$dQd9kf9gS425teb6wT8KiO$wi5bueMQwk3vB5RrgOWXooCcCPONDp9f6F/XzHSZ/OU=",
+            "last_login": "2023-08-30T20:07:34.780Z",
+            "is_superuser": true,
+            "username": "admin",
+            "first_name": "",
+            "last_name": "",
+            "email": "",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2023-08-27T20:20:53.510Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 2,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$ypEyTqqmtdaxMOmCGgd4kI$QC1vW1A0IuZeZYL6BVGZ4zW7AU/fEqYWOODw5dZRHcc=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "test.user",
+            "first_name": "Test",
+            "last_name": "User",
+            "email": "user@test.com",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2023-08-30T20:08:33Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 1,
+        "fields": {
+            "app_label": "admin",
+            "model": "logentry"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 2,
+        "fields": {
+            "app_label": "auth",
+            "model": "permission"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 3,
+        "fields": {
+            "app_label": "auth",
+            "model": "group"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 4,
+        "fields": {
+            "app_label": "auth",
+            "model": "user"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 5,
+        "fields": {
+            "app_label": "contenttypes",
+            "model": "contenttype"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 6,
+        "fields": {
+            "app_label": "sessions",
+            "model": "session"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 7,
+        "fields": {
+            "app_label": "auditlog",
+            "model": "logentry"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 8,
+        "fields": {
+            "app_label": "employer",
+            "model": "employer"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 9,
+        "fields": {
+            "app_label": "patient",
+            "model": "diagnosis"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 10,
+        "fields": {
+            "app_label": "patient",
+            "model": "patient"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 11,
+        "fields": {
+            "app_label": "report",
+            "model": "report"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "8je98hz4umooeqyxci8wmtxdow6p5tuu",
+        "fields": {
+            "session_data": ".eJxVjEEOwiAQRe_C2pDCQACX7j0DmRkGqZo2Ke3KeHdt0oVu_3vvv1TGbW1567LksaizMur0uxHyQ6YdlDtOt1nzPK3LSHpX9EG7vs5FnpfD_Tto2Nu35hjESbBVwA0EhEDAg8OUbIDANRqXJCLaygFiJAkxeTaeLBifPKn3B-mTN7I:1qbnx0:GidOqCNVxLV7afc1bTsH8Gmshmq8TNLEfFfp5YUhARU",
+            "expire_date": "2023-09-14T20:07:34.852Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "ufq6po1bzq7spe9rbymp2rmp3l17afbo",
+        "fields": {
+            "session_data": ".eJxVjEEOwiAQRe_C2pDCQACX7j0DmRkGqZo2Ke3KeHdt0oVu_3vvv1TGbW1567LksaizMur0uxHyQ6YdlDtOt1nzPK3LSHpX9EG7vs5FnpfD_Tto2Nu35hjESbBVwA0EhEDAg8OUbIDANRqXJCLaygFiJAkxeTaeLBifPKn3B-mTN7I:1qaMFt:DiyEzIJwA11H0bBee35uH7y6riQcef0TH6vPtujE3nU",
+            "expire_date": "2023-09-10T20:21:05.741Z"
+        }
+    },
+    {
+        "model": "auditlog.logentry",
+        "pk": 1,
+        "fields": {
+            "content_type": 4,
+            "object_pk": "1",
+            "object_id": 1,
+            "object_repr": "admin",
+            "serialized_data": null,
+            "action": 0,
+            "changes": "{\"is_superuser\": [\"None\", \"True\"], \"username\": [\"None\", \"admin\"], \"first_name\": [\"None\", \"\"], \"last_name\": [\"None\", \"\"], \"email\": [\"None\", \"\"], \"is_staff\": [\"None\", \"True\"], \"is_active\": [\"None\", \"True\"], \"date_joined\": [\"None\", \"2023-08-27 20:20:53.510019\"], \"id\": [\"None\", \"1\"], \"password\": [\"None\", \"pbkdf2_sha256$600000$dQd9kf9gS425teb6wT8KiO$wi5bueMQwk3vB5RrgOWXooCcCPONDp9f6F/XzHSZ/OU=\"]}",
+            "actor": null,
+            "remote_addr": null,
+            "timestamp": "2023-08-27T20:20:54.006Z",
+            "additional_data": null
+        }
+    },
+    {
+        "model": "auditlog.logentry",
+        "pk": 2,
+        "fields": {
+            "content_type": 6,
+            "object_pk": "ufq6po1bzq7spe9rbymp2rmp3l17afbo",
+            "object_id": null,
+            "object_repr": "ufq6po1bzq7spe9rbymp2rmp3l17afbo",
+            "serialized_data": null,
+            "action": 0,
+            "changes": "{\"expire_date\": [\"None\", \"2023-09-10 20:21:05.660327\"], \"session_key\": [\"None\", \"ufq6po1bzq7spe9rbymp2rmp3l17afbo\"], \"session_data\": [\"None\", \"e30:1qaMFt:C0xN7S5fiR87WxlK5yJM3AAHpQG-hI9XSJa7ggG02Vw\"]}",
+            "actor": null,
+            "remote_addr": null,
+            "timestamp": "2023-08-27T20:21:05.674Z",
+            "additional_data": null
+        }
+    },
+    {
+        "model": "auditlog.logentry",
+        "pk": 3,
+        "fields": {
+            "content_type": 4,
+            "object_pk": "1",
+            "object_id": 1,
+            "object_repr": "admin",
+            "serialized_data": null,
+            "action": 1,
+            "changes": "{\"last_login\": [\"None\", \"2023-08-27 20:21:05.677882\"]}",
+            "actor": null,
+            "remote_addr": null,
+            "timestamp": "2023-08-27T20:21:05.684Z",
+            "additional_data": null
+        }
+    },
+    {
+        "model": "auditlog.logentry",
+        "pk": 4,
+        "fields": {
+            "content_type": 6,
+            "object_pk": "ufq6po1bzq7spe9rbymp2rmp3l17afbo",
+            "object_id": null,
+            "object_repr": "ufq6po1bzq7spe9rbymp2rmp3l17afbo",
+            "serialized_data": null,
+            "action": 1,
+            "changes": "{\"expire_date\": [\"2023-09-10 20:21:05.660327\", \"2023-09-10 20:21:05.741235\"], \"session_data\": [\"e30:1qaMFt:C0xN7S5fiR87WxlK5yJM3AAHpQG-hI9XSJa7ggG02Vw\", \".eJxVjEEOwiAQRe_C2pDCQACX7j0DmRkGqZo2Ke3KeHdt0oVu_3vvv1TGbW1567LksaizMur0uxHyQ6YdlDtOt1nzPK3LSHpX9EG7vs5FnpfD_Tto2Nu35hjESbBVwA0EhEDAg8OUbIDANRqXJCLaygFiJAkxeTaeLBifPKn3B-mTN7I:1qaMFt:DiyEzIJwA11H0bBee35uH7y6riQcef0TH6vPtujE3nU\"]}",
+            "actor": null,
+            "remote_addr": null,
+            "timestamp": "2023-08-27T20:21:05.742Z",
+            "additional_data": null
+        }
+    },
+    {
+        "model": "auditlog.logentry",
+        "pk": 6,
+        "fields": {
+            "content_type": 10,
+            "object_pk": "1",
+            "object_id": 1,
+            "object_repr": "João Doe",
+            "serialized_data": null,
+            "action": 0,
+            "changes": "{\"name\": [\"None\", \"Jo\\u00e3o Doe\"], \"age\": [\"None\", \"19\"], \"room\": [\"None\", \"A1\"], \"medical_record\": [\"None\", \"1\"], \"hospitalized_in\": [\"None\", \"2023-08-27\"], \"sorted_in\": [\"None\", \"2023-08-27\"], \"id\": [\"None\", \"1\"], \"released\": [\"None\", \"False\"], \"created_at\": [\"None\", \"2023-08-27 20:21:55.313790\"], \"updated_at\": [\"None\", \"2023-08-27 20:21:55.313816\"], \"reports\": [\"None\", \"report.Report.None\"], \"diagnosis\": [\"None\", \"Surdez\"]}",
+            "actor": 1,
+            "remote_addr": "127.0.0.1",
+            "timestamp": "2023-08-27T20:21:55.318Z",
+            "additional_data": null
+        }
+    },
+    {
+        "model": "auditlog.logentry",
+        "pk": 8,
+        "fields": {
+            "content_type": 6,
+            "object_pk": "8je98hz4umooeqyxci8wmtxdow6p5tuu",
+            "object_id": null,
+            "object_repr": "8je98hz4umooeqyxci8wmtxdow6p5tuu",
+            "serialized_data": null,
+            "action": 0,
+            "changes": "{\"expire_date\": [\"None\", \"2023-09-14 20:07:34.757498\"], \"session_key\": [\"None\", \"8je98hz4umooeqyxci8wmtxdow6p5tuu\"], \"session_data\": [\"None\", \"e30:1qbnx0:USsZ1O24j51KczkU3JqK-BRYNXfZkHDyxrqF2p7yhLU\"]}",
+            "actor": null,
+            "remote_addr": null,
+            "timestamp": "2023-08-30T20:07:34.773Z",
+            "additional_data": null
+        }
+    },
+    {
+        "model": "auditlog.logentry",
+        "pk": 9,
+        "fields": {
+            "content_type": 4,
+            "object_pk": "1",
+            "object_id": 1,
+            "object_repr": "admin",
+            "serialized_data": null,
+            "action": 1,
+            "changes": "{\"last_login\": [\"2023-08-27 20:21:05.677882\", \"2023-08-30 20:07:34.780272\"]}",
+            "actor": null,
+            "remote_addr": null,
+            "timestamp": "2023-08-30T20:07:34.784Z",
+            "additional_data": null
+        }
+    },
+    {
+        "model": "auditlog.logentry",
+        "pk": 10,
+        "fields": {
+            "content_type": 6,
+            "object_pk": "8je98hz4umooeqyxci8wmtxdow6p5tuu",
+            "object_id": null,
+            "object_repr": "8je98hz4umooeqyxci8wmtxdow6p5tuu",
+            "serialized_data": null,
+            "action": 1,
+            "changes": "{\"expire_date\": [\"2023-09-14 20:07:34.757498\", \"2023-09-14 20:07:34.852640\"], \"session_data\": [\"e30:1qbnx0:USsZ1O24j51KczkU3JqK-BRYNXfZkHDyxrqF2p7yhLU\", \".eJxVjEEOwiAQRe_C2pDCQACX7j0DmRkGqZo2Ke3KeHdt0oVu_3vvv1TGbW1567LksaizMur0uxHyQ6YdlDtOt1nzPK3LSHpX9EG7vs5FnpfD_Tto2Nu35hjESbBVwA0EhEDAg8OUbIDANRqXJCLaygFiJAkxeTaeLBifPKn3B-mTN7I:1qbnx0:GidOqCNVxLV7afc1bTsH8Gmshmq8TNLEfFfp5YUhARU\"]}",
+            "actor": null,
+            "remote_addr": null,
+            "timestamp": "2023-08-30T20:07:34.853Z",
+            "additional_data": null
+        }
+    },
+    {
+        "model": "auditlog.logentry",
+        "pk": 11,
+        "fields": {
+            "content_type": 4,
+            "object_pk": "2",
+            "object_id": 2,
+            "object_repr": "test.user",
+            "serialized_data": null,
+            "action": 0,
+            "changes": "{\"is_superuser\": [\"None\", \"False\"], \"username\": [\"None\", \"test.user\"], \"first_name\": [\"None\", \"\"], \"last_name\": [\"None\", \"\"], \"email\": [\"None\", \"\"], \"is_staff\": [\"None\", \"False\"], \"is_active\": [\"None\", \"True\"], \"date_joined\": [\"None\", \"2023-08-30 20:08:33.646025\"], \"id\": [\"None\", \"2\"], \"password\": [\"None\", \"pbkdf2_sha256$600000$ypEyTqqmtdaxMOmCGgd4kI$QC1vW1A0IuZeZYL6BVGZ4zW7AU/fEqYWOODw5dZRHcc=\"]}",
+            "actor": 1,
+            "remote_addr": "127.0.0.1",
+            "timestamp": "2023-08-30T20:08:34.037Z",
+            "additional_data": null
+        }
+    },
+    {
+        "model": "auditlog.logentry",
+        "pk": 12,
+        "fields": {
+            "content_type": 4,
+            "object_pk": "2",
+            "object_id": 2,
+            "object_repr": "test.user",
+            "serialized_data": null,
+            "action": 1,
+            "changes": "{\"first_name\": [\"\", \"Test\"], \"last_name\": [\"\", \"User\"], \"email\": [\"\", \"user@test.com\"], \"is_staff\": [\"False\", \"True\"], \"date_joined\": [\"2023-08-30 20:08:33.646025\", \"2023-08-30 20:08:33\"]}",
+            "actor": 1,
+            "remote_addr": "127.0.0.1",
+            "timestamp": "2023-08-30T20:09:00.781Z",
+            "additional_data": null
+        }
+    },
+    {
+        "model": "auditlog.logentry",
+        "pk": 13,
+        "fields": {
+            "content_type": 8,
+            "object_pk": "1",
+            "object_id": 1,
+            "object_repr": "Test User",
+            "serialized_data": null,
+            "action": 0,
+            "changes": "{\"user\": [\"None\", \"test.user\"], \"phone\": [\"None\", \"99999999999\"], \"created_at\": [\"None\", \"2023-08-30 20:09:20.464119\"], \"updated_at\": [\"None\", \"2023-08-30 20:09:20.464149\"], \"id\": [\"None\", \"1\"]}",
+            "actor": 1,
+            "remote_addr": "127.0.0.1",
+            "timestamp": "2023-08-30T20:09:20.467Z",
+            "additional_data": null
+        }
+    },
+    {
+        "model": "auditlog.logentry",
+        "pk": 14,
+        "fields": {
+            "content_type": 11,
+            "object_pk": "1",
+            "object_id": 1,
+            "object_repr": "20230827",
+            "serialized_data": null,
+            "action": 2,
+            "changes": "{\"updated_at\": [\"2023-08-27\", \"None\"], \"id\": [\"1\", \"None\"], \"patient\": [\"Jo\\u00e3o Doe\", \"None\"], \"ventilation_mode\": [\"Modo 1\", \"None\"], \"initial_nutritional_route\": [\"Via 1\", \"None\"], \"actual_nutritional_route\": [\"Via 2\", \"None\"], \"treatment\": [\"Sim\", \"None\"], \"conduct\": [\"Boa\", \"None\"], \"observation\": [\"N/A\", \"None\"], \"created_at\": [\"2023-08-27\", \"None\"]}",
+            "actor": 1,
+            "remote_addr": "127.0.0.1",
+            "timestamp": "2023-08-30T20:09:32.814Z",
+            "additional_data": null
+        }
+    },
+    {
+        "model": "auditlog.logentry",
+        "pk": 15,
+        "fields": {
+            "content_type": 10,
+            "object_pk": "1",
+            "object_id": 1,
+            "object_repr": "João Doe",
+            "serialized_data": null,
+            "action": 2,
+            "changes": "{\"reports\": [\"report.Report.None\", \"None\"], \"name\": [\"Jo\\u00e3o Doe\", \"None\"], \"age\": [\"19\", \"None\"], \"room\": [\"A1\", \"None\"], \"medical_record\": [\"1\", \"None\"], \"hospitalized_in\": [\"2023-08-27\", \"None\"], \"sorted_in\": [\"2023-08-27\", \"None\"], \"id\": [\"1\", \"None\"], \"released\": [\"False\", \"None\"], \"created_at\": [\"2023-08-27 20:21:55.313790\", \"None\"], \"updated_at\": [\"2023-08-27 20:21:55.313816\", \"None\"], \"diagnosis\": [\"Surdez\", \"None\"]}",
+            "actor": 1,
+            "remote_addr": "127.0.0.1",
+            "timestamp": "2023-08-30T20:09:32.819Z",
+            "additional_data": null
+        }
+    },
+    {
+        "model": "auditlog.logentry",
+        "pk": 16,
+        "fields": {
+            "content_type": 9,
+            "object_pk": "1",
+            "object_id": 1,
+            "object_repr": "Surdez",
+            "serialized_data": null,
+            "action": 2,
+            "changes": "{\"name\": [\"Surdez\", \"None\"], \"description\": [\"N/A\", \"None\"], \"created_at\": [\"2023-08-27 20:21:53.914831\", \"None\"], \"updated_at\": [\"2023-08-27 20:21:53.914862\", \"None\"], \"id\": [\"1\", \"None\"], \"patients\": [\"patient.Patient.None\", \"None\"]}",
+            "actor": 1,
+            "remote_addr": "127.0.0.1",
+            "timestamp": "2023-08-30T20:09:32.822Z",
+            "additional_data": null
+        }
+    },
+    {
+        "model": "auditlog.logentry",
+        "pk": 17,
+        "fields": {
+            "content_type": 9,
+            "object_pk": "2",
+            "object_id": 2,
+            "object_repr": "Test Diagnosis",
+            "serialized_data": null,
+            "action": 0,
+            "changes": "{\"name\": [\"None\", \"Test Diagnosis\"], \"description\": [\"None\", \"Test Diagnosis' description\"], \"created_at\": [\"None\", \"2023-08-30 20:10:28.079070\"], \"updated_at\": [\"None\", \"2023-08-30 20:10:28.079132\"], \"id\": [\"None\", \"2\"], \"patients\": [\"None\", \"patient.Patient.None\"]}",
+            "actor": 1,
+            "remote_addr": "127.0.0.1",
+            "timestamp": "2023-08-30T20:10:28.083Z",
+            "additional_data": null
+        }
+    },
+    {
+        "model": "auditlog.logentry",
+        "pk": 18,
+        "fields": {
+            "content_type": 10,
+            "object_pk": "2",
+            "object_id": 2,
+            "object_repr": "Test Patient",
+            "serialized_data": null,
+            "action": 0,
+            "changes": "{\"reports\": [\"None\", \"report.Report.None\"], \"name\": [\"None\", \"Test Patient\"], \"age\": [\"None\", \"99\"], \"room\": [\"None\", \"A1\"], \"medical_record\": [\"None\", \"1\"], \"hospitalized_in\": [\"None\", \"2023-08-30\"], \"sorted_in\": [\"None\", \"2023-08-30\"], \"id\": [\"None\", \"2\"], \"released\": [\"None\", \"False\"], \"created_at\": [\"None\", \"2023-08-30 20:11:13.186553\"], \"updated_at\": [\"None\", \"2023-08-30 20:11:13.186584\"], \"diagnosis\": [\"None\", \"Test Diagnosis\"]}",
+            "actor": 1,
+            "remote_addr": "127.0.0.1",
+            "timestamp": "2023-08-30T20:11:13.194Z",
+            "additional_data": null
+        }
+    },
+    {
+        "model": "auditlog.logentry",
+        "pk": 19,
+        "fields": {
+            "content_type": 11,
+            "object_pk": "2",
+            "object_id": 2,
+            "object_repr": "20230831",
+            "serialized_data": null,
+            "action": 0,
+            "changes": "{\"updated_at\": [\"None\", \"2023-08-30\"], \"id\": [\"None\", \"2\"], \"patient\": [\"None\", \"Test Patient\"], \"ventilation_mode\": [\"None\", \"Test Ventilation Mode\"], \"initial_nutritional_route\": [\"None\", \"Test Initial Nutritional Route\"], \"actual_nutritional_route\": [\"None\", \"Test Actual Nutritional Route\"], \"treatment\": [\"None\", \"Test Treatment\"], \"conduct\": [\"None\", \"Test Conduct\"], \"observation\": [\"None\", \"Test Observation\"], \"created_at\": [\"None\", \"2023-08-30\"]}",
+            "actor": 1,
+            "remote_addr": "127.0.0.1",
+            "timestamp": "2023-08-30T20:13:03.293Z",
+            "additional_data": null
+        }
+    },
+    {
+        "model": "employer.employer",
+        "pk": 1,
+        "fields": {
+            "user": 2,
+            "phone": "99999999999",
+            "created_at": "2023-08-30T20:09:20.464Z",
+            "updated_at": "2023-08-30T20:09:20.464Z"
+        }
+    },
+    {
+        "model": "patient.diagnosis",
+        "pk": 2,
+        "fields": {
+            "name": "Test Diagnosis",
+            "description": "Test Diagnosis' description",
+            "created_at": "2023-08-30T20:10:28.079Z",
+            "updated_at": "2023-08-30T20:10:28.079Z"
+        }
+    },
+    {
+        "model": "patient.patient",
+        "pk": 1,
+        "fields": {
+            "name": "Test Patient",
+            "age": 99,
+            "room": "A1",
+            "medical_record": 1,
+            "hospitalized_in": "2023-08-30",
+            "sorted_in": "2023-08-30",
+            "released": false,
+            "created_at": "2023-08-30T20:11:13.186Z",
+            "updated_at": "2023-08-30T20:11:13.186Z",
+            "diagnosis": 2
+        }
+    },
+    {
+        "model": "report.report",
+        "pk": 2,
+        "fields": {
+            "patient": 1,
+            "ventilation_mode": "Test Ventilation Mode",
+            "initial_nutritional_route": "Test Initial Nutritional Route",
+            "actual_nutritional_route": "Test Actual Nutritional Route",
+            "treatment": "Test Treatment",
+            "conduct": "Test Conduct",
+            "observation": "Test Observation",
+            "created_at": "2023-08-30",
+            "updated_at": "2023-08-30"
+        }
+    }
+]
