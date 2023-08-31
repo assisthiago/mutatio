@@ -77,7 +77,36 @@ class ManagerTest(TestCase):
 
 class FormTest(TestCase):
     def setUp(self):
-        self.form = ReportForm()
+        patient = Patient.objects.create(
+            name="patient test",
+            age=99,
+            room="a1",
+            medical_record="1",
+            hospitalized_in=date.today(),
+            sorted_in=date.today(),
+            diagnosis=Diagnosis.objects.create(name="disease test"),
+        )
+
+        Report.objects.create(
+            ventilation_mode="ventilation_mode",
+            initial_nutritional_route="ventilation_mode",
+            actual_nutritional_route="ventilation_mode",
+            treatment="ventilation_mode",
+            conduct="ventilation_mode",
+            patient=patient,
+        )
+
+        self.form = ReportForm(
+            dict(
+                ventilation_mode="ventilation_mode",
+                initial_nutritional_route="initial_nutritional_route",
+                actual_nutritional_route="actual_nutritional_route",
+                treatment="treatment",
+                conduct="conduct",
+                observation="observation",
+                patient=patient,
+            )
+        )
 
     def test_form_has_fields(self):
         expected = [
@@ -90,6 +119,13 @@ class FormTest(TestCase):
             "observation",
         ]
         self.assertSequenceEqual(expected, list(self.form.fields))
+
+    def test_validation_error(self):
+        self.form.is_valid()
+        self.assertEqual(
+            "Paciente Patient Test já registrado em um relatório para o dia de hoje.",
+            self.form.errors.as_data().get("__all__")[0].message,
+        )
 
 
 class AdminTest(TestCase):
