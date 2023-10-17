@@ -8,7 +8,8 @@ class ReportForm(forms.ModelForm):
     def clean(self):
         cleaned_data = super().clean()
         patient = cleaned_data.get("patient")
-        if Report.objects.from_today(patient=patient).exists():
+
+        if not self.instance.id and Report.objects.from_today(patient=patient).exists():
             raise ValidationError(
                 f"Paciente {patient} já registrado em um relatório para o dia de hoje."
             )
