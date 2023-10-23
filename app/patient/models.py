@@ -29,6 +29,7 @@ class Patient(models.Model):
     medical_record = models.IntegerField("prontuário")
     hospitalized_in = models.DateField("data da internação")
     sorted_in = models.DateField("data da triagem")
+    nutritional_route = models.CharField("via nutricional", max_length=100)
     released = models.BooleanField("alta médica", default=False)
     created_at = models.DateTimeField("criado em", auto_now_add=True)
     updated_at = models.DateTimeField("atualizado em", auto_now=True)
