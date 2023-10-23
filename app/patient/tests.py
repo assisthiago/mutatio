@@ -25,6 +25,7 @@ class PatientModelTest(TestCase):
             medical_record="1",
             hospitalized_in=date.today(),
             sorted_in=date.today(),
+            nutritional_route="",
             diagnosis=Diagnosis.objects.create(name="disease test"),
         )
 
@@ -58,6 +59,7 @@ class FormTest(TestCase):
             "medical_record",
             "hospitalized_in",
             "sorted_in",
+            "nutritional_route",
             "released",
             "diagnosis",
         ]
