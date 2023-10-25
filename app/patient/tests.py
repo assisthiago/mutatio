@@ -60,7 +60,7 @@ class FormTest(TestCase):
             "hospitalized_in",
             "sorted_in",
             "nutritional_route",
-            "released",
+            "eligible",
             "diagnosis",
         ]
 
