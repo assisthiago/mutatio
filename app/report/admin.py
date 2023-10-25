@@ -58,7 +58,7 @@ class ReportAdmin(DjangoObjectActions, admin.ModelAdmin):
             )
 
         if last_reports_availables := Report.objects.last_availables(
-            patient__released=False
+            patient__eligible=True
         ):
             reports_to_copy = []
             for report in last_reports_availables:
