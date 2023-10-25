@@ -16,7 +16,6 @@ class PatientAdmin(admin.ModelAdmin):
     list_display = [
         "name",
         "age",
-        "room",
         "medical_record",
         "diagnosis",
         "hospitalized_in",

@@ -21,7 +21,6 @@ class PatientModelTest(TestCase):
         self.patient = Patient.objects.create(
             name="patient test",
             age=99,
-            room="a1",
             medical_record="1",
             hospitalized_in=date.today(),
             sorted_in=date.today(),
@@ -55,7 +54,6 @@ class FormTest(TestCase):
         expected = [
             "name",
             "age",
-            "room",
             "medical_record",
             "hospitalized_in",
             "sorted_in",
@@ -80,7 +78,6 @@ class AdminTest(TestCase):
         Patient.objects.create(
             name="patient test",
             age=99,
-            room="a1",
             medical_record="1",
             hospitalized_in=date.today(),
             sorted_in=date.today(),
