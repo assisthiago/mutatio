@@ -21,16 +21,16 @@ class PatientAdmin(admin.ModelAdmin):
         "diagnosis",
         "hospitalized_in",
         "sorted_in",
-        "released",
+        "eligible",
     ]
 
-    list_editable = ["released"]
+    list_editable = ["eligible"]
 
     list_filter = [
         "diagnosis",
         "hospitalized_in",
         "sorted_in",
-        "released",
+        "eligible",
     ]
 
     ordering = ["name"]
