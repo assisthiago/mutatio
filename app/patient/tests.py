@@ -5,7 +5,7 @@ from django.test import TestCase
 
 from app.patient.admin import PatientAdmin, admin
 from app.patient.forms import PatientForm, validate_isdigit
-from app.patient.models import Diagnosis, Patient
+from app.patient.models import Diagnosis, Patient, Room
 
 
 class DiagnosisModelTest(TestCase):
@@ -26,6 +26,7 @@ class PatientModelTest(TestCase):
             sorted_in=date.today(),
             nutritional_route="",
             diagnosis=Diagnosis.objects.create(name="disease test"),
+            room=Room.objects.create(ward="A", bed=1),
         )
 
     def test_create(self):
@@ -60,6 +61,7 @@ class FormTest(TestCase):
             "nutritional_route",
             "eligible",
             "diagnosis",
+            "room",
         ]
 
         self.assertSequenceEqual(expected, list(self.form.fields))
@@ -82,6 +84,7 @@ class AdminTest(TestCase):
             hospitalized_in=date.today(),
             sorted_in=date.today(),
             diagnosis=Diagnosis.objects.create(name="disease test"),
+            room=Room.objects.create(ward="A", bed=1),
         )
 
     def test_has_form(self):

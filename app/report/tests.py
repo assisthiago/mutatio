@@ -4,7 +4,7 @@ from unittest.mock import Mock
 from django.contrib import messages
 from django.test import TestCase
 
-from app.patient.models import Diagnosis, Patient
+from app.patient.models import Diagnosis, Patient, Room
 from app.report.admin import ReportAdmin, admin
 from app.report.forms import ReportForm
 from app.report.models import Report
@@ -25,6 +25,7 @@ class ModelTest(TestCase):
                 hospitalized_in=date.today(),
                 sorted_in=date.today(),
                 diagnosis=Diagnosis.objects.create(name="disease test"),
+                room=Room.objects.create(ward="A", bed=1),
             ),
         )
 
@@ -56,6 +57,7 @@ class ManagerTest(TestCase):
                 hospitalized_in=date.today(),
                 sorted_in=date.today(),
                 diagnosis=Diagnosis.objects.create(name="disease test"),
+                room=Room.objects.create(ward="A", bed=1),
             ),
         )
 
@@ -82,6 +84,7 @@ class FormTest(TestCase):
             hospitalized_in=date.today(),
             sorted_in=date.today(),
             diagnosis=Diagnosis.objects.create(name="disease test"),
+            room=Room.objects.create(ward="A", bed=1),
         )
 
         Report.objects.create(
@@ -136,12 +139,12 @@ class AdminTest(TestCase):
 
     def test_get_shift(self):
         expected = self.model_admin.get_shift(self.model_admin.model.objects.first())
-        self.assertEqual("20230830", expected)
+        self.assertEqual("20231024", expected)
 
     def test_get_patient(self):
         expected = self.model_admin.get_patient(self.model_admin.model.objects.first())
         self.assertEqual(
-            "<a href='/admin/patient/patient/1/change/'>Test Patient</a>", expected
+            "<a href='/admin/patient/patient/1/change/'>John Doe</a>", expected
         )
 
     def test_has_changelist_actions(self):
