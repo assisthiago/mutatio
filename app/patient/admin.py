@@ -38,7 +38,7 @@ class PatientAdmin(admin.ModelAdmin):
         "room",
         "age",
         "medical_record",
-        "diagnosis",
+        "get_diagnoses",
         "hospitalized_in",
         "sorted_in",
         "eligible",
@@ -47,7 +47,7 @@ class PatientAdmin(admin.ModelAdmin):
     list_editable = ["eligible"]
 
     list_filter = [
-        "diagnosis",
+        "diagnoses",
         "hospitalized_in",
         "sorted_in",
         "eligible",
@@ -59,3 +59,10 @@ class PatientAdmin(admin.ModelAdmin):
     search_help_text = (
         "Busque pelo nome e/ou sobrenome, prontuário, enfermaria, leito, ou e-mail."
     )
+
+    @admin.display(description="Diagnósticos")
+    def get_diagnoses(self, obj):
+        if diagnoses := obj.diagnoses.all():
+            return ", ".join([diagnosis.name for diagnosis in diagnoses])
+
+        return "N/A"
