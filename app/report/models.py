@@ -20,7 +20,7 @@ class Report(models.Model):
     actual_nutritional_route = models.CharField("via nutricional atual", max_length=100)
     treatment = models.CharField("atendimento", max_length=100)
     conduct = models.TextField("conduta", max_length=100)
-    observation = models.TextField("observação", max_length=100, default="N/A")
+    observation = models.TextField("observação", max_length=255, default="N/A")
     created_at = models.DateField("criado em", auto_now_add=True)
     updated_at = models.DateField("atualizado em", auto_now=True)
 
