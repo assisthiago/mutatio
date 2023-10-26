@@ -151,9 +151,9 @@ class AdminTest(TestCase):
     def test_has_form(self):
         self.assertTrue(self.model_admin.form)
 
-    def test_get_shift(self):
-        expected = self.model_admin.get_shift(self.obj)
-        self.assertEqual(str(self.obj), expected)
+    def test_see_more(self):
+        expected = self.model_admin.see_more(self.obj)
+        self.assertEqual("Ver detalhes", expected)
 
     def test_get_patient(self):
         expected = self.model_admin.get_patient(self.model_admin.model.objects.first())

@@ -15,7 +15,8 @@ class ReportAdmin(DjangoObjectActions, admin.ModelAdmin):
     date_hierarchy = "created_at"
 
     list_display = [
-        "get_shift",
+        "see_more",
+        "created_at",
         "get_patient",
         "ventilation_mode",
         "initial_nutritional_route",
@@ -32,9 +33,9 @@ class ReportAdmin(DjangoObjectActions, admin.ModelAdmin):
 
     list_filter = ["created_at"]
 
-    @admin.display(description="relatóio", ordering="-created_at")
-    def get_shift(self, obj):
-        return str(obj)
+    @admin.display(description="#")
+    def see_more(self, _):
+        return "Ver detalhes"
 
     @admin.display(description="paciente", ordering="patient__name")
     def get_patient(self, obj):
