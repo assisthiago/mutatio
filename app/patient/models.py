@@ -22,10 +22,28 @@ class Diagnosis(models.Model):
         verbose_name_plural = "diagnósticos"
 
 
+class Room(models.Model):
+    ward = models.CharField("enfermaria", max_length=10)
+    bed = models.PositiveSmallIntegerField("leito")
+
+    def __str__(self) -> str:
+        return f"{self.ward}{self.bed}"
+
+    class Meta:
+        db_table = "room"
+        constraints = [
+            models.UniqueConstraint(
+                fields=["ward", "bed"],
+                name="unique_room",
+            )
+        ]
+        verbose_name = "quarto"
+        verbose_name_plural = "quartos"
+
+
 class Patient(models.Model):
     name = models.CharField("nome completo", max_length=100)
     age = models.IntegerField("idade")
-    room = models.CharField("enfermaria/leito", max_length=10)
     medical_record = models.IntegerField("prontuário")
     hospitalized_in = models.DateField("data da internação")
     sorted_in = models.DateField("data da triagem")
@@ -40,6 +58,10 @@ class Patient(models.Model):
         related_name="patients",
         on_delete=models.CASCADE,
         verbose_name="diagnóstico",
+    )
+
+    room = models.OneToOneField(
+        Room, related_name="patient", on_delete=models.CASCADE, verbose_name="quarto"
     )
 
     def get_admin_url(self):
