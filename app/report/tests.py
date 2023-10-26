@@ -12,21 +12,26 @@ from app.report.models import Report
 
 class ModelTest(TestCase):
     def setUp(self):
+        diagnosis = Diagnosis.objects.create(name="disease test")
+        patient = Patient(
+            name="patient test",
+            age=99,
+            medical_record="1",
+            hospitalized_in=date.today(),
+            sorted_in=date.today(),
+            room=Room.objects.create(ward="A", bed=1),
+        )
+
+        patient.save()
+        patient.diagnoses.set([diagnosis])
+
         self.report = Report.objects.create(
             ventilation_mode="",
             initial_nutritional_route="",
             actual_nutritional_route="",
             treatment="",
             conduct="",
-            patient=Patient.objects.create(
-                name="patient test",
-                age=99,
-                medical_record="1",
-                hospitalized_in=date.today(),
-                sorted_in=date.today(),
-                diagnosis=Diagnosis.objects.create(name="disease test"),
-                room=Room.objects.create(ward="A", bed=1),
-            ),
+            patient=patient,
         )
 
     def test_create(self):
@@ -44,21 +49,26 @@ class ModelTest(TestCase):
 
 class ManagerTest(TestCase):
     def setUp(self):
+        diagnosis = Diagnosis.objects.create(name="disease test")
+        patient = Patient(
+            name="patient test",
+            age=99,
+            medical_record="1",
+            hospitalized_in=date.today(),
+            sorted_in=date.today(),
+            room=Room.objects.create(ward="A", bed=1),
+        )
+
+        patient.save()
+        patient.diagnoses.set([diagnosis])
+
         Report.objects.create(
             ventilation_mode="",
             initial_nutritional_route="",
             actual_nutritional_route="",
             treatment="",
             conduct="",
-            patient=Patient.objects.create(
-                name="patient test",
-                age=99,
-                medical_record="1",
-                hospitalized_in=date.today(),
-                sorted_in=date.today(),
-                diagnosis=Diagnosis.objects.create(name="disease test"),
-                room=Room.objects.create(ward="A", bed=1),
-            ),
+            patient=patient,
         )
 
     def test_report_from_today(self):
@@ -77,15 +87,18 @@ class ManagerTest(TestCase):
 
 class FormTest(TestCase):
     def setUp(self):
-        patient = Patient.objects.create(
+        diagnosis = Diagnosis.objects.create(name="disease test")
+        patient = Patient(
             name="patient test",
             age=99,
             medical_record="1",
             hospitalized_in=date.today(),
             sorted_in=date.today(),
-            diagnosis=Diagnosis.objects.create(name="disease test"),
             room=Room.objects.create(ward="A", bed=1),
         )
+
+        patient.save()
+        patient.diagnoses.set([diagnosis])
 
         Report.objects.create(
             ventilation_mode="ventilation_mode",
@@ -133,18 +146,20 @@ class AdminTest(TestCase):
 
     def setUp(self):
         self.model_admin = ReportAdmin(Report, admin.site)
+        self.obj = Report.objects.first()
 
     def test_has_form(self):
         self.assertTrue(self.model_admin.form)
 
     def test_get_shift(self):
-        expected = self.model_admin.get_shift(self.model_admin.model.objects.first())
-        self.assertEqual("20231024", expected)
+        expected = self.model_admin.get_shift(self.obj)
+        self.assertEqual(str(self.obj), expected)
 
     def test_get_patient(self):
         expected = self.model_admin.get_patient(self.model_admin.model.objects.first())
         self.assertEqual(
-            "<a href='/admin/patient/patient/1/change/'>John Doe</a>", expected
+            f"<a href='/admin/patient/patient/{self.obj.patient.id}/change/'>{self.obj.patient}</a>",
+            expected,
         )
 
     def test_has_changelist_actions(self):
@@ -153,7 +168,7 @@ class AdminTest(TestCase):
     def test_copy_previous_reports(self):
         mock = self._call_action()
         mock.assert_called_once_with(
-            None, "1 relatório copiado com sucesso.", messages.SUCCESS
+            None, "2 relatórios copiados com sucesso.", messages.SUCCESS
         )
 
     def test_copy_previous_reports_from_today(self):

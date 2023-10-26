@@ -62,7 +62,4 @@ class PatientAdmin(admin.ModelAdmin):
 
     @admin.display(description="Diagnósticos")
     def get_diagnoses(self, obj):
-        if diagnoses := obj.diagnoses.all():
-            return ", ".join([diagnosis.name for diagnosis in diagnoses])
-
-        return "N/A"
+        return ", ".join([diagnosis.name for diagnosis in obj.diagnoses.all()])
