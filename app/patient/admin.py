@@ -26,7 +26,7 @@ class RoomAdmin(admin.ModelAdmin):
 
     @admin.display(description="#")
     def see_more(self, _):
-        return f"Ver detalhes"
+        return "Ver detalhes"
 
 
 @admin.register(Patient)

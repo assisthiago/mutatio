@@ -3,7 +3,7 @@ from datetime import date
 from django.core.exceptions import ValidationError
 from django.test import TestCase
 
-from app.patient.admin import PatientAdmin, admin
+from app.patient.admin import PatientAdmin, RoomAdmin, admin
 from app.patient.forms import PatientForm, validate_isdigit
 from app.patient.models import Diagnosis, Patient, Room
 
@@ -47,9 +47,20 @@ class PatientModelTest(TestCase):
         )
 
 
-class FormTest(TestCase):
-    def setUp(self):
-        self.form = PatientForm()
+class PatientFormTest(TestCase):
+    def setUp(self) -> None:
+        diagnosis = Diagnosis.objects.create(name="disease test")
+        room = Room.objects.create(ward="A", bed=1)
+        self.patient = {
+            "name": "patient test",
+            "age": 99,
+            "medical_record": "1",
+            "hospitalized_in": date.today(),
+            "sorted_in": date.today(),
+            "nutritional_route": "nutritional route test",
+            "diagnosis": diagnosis,
+            "room": room,
+        }
 
     def test_form_has_fields(self):
         expected = [
@@ -64,7 +75,7 @@ class FormTest(TestCase):
             "room",
         ]
 
-        self.assertSequenceEqual(expected, list(self.form.fields))
+        self.assertSequenceEqual(expected, list(PatientForm().fields))
 
     def test_validate_isdigit(self):
         self.assertTrue(validate_isdigit("1"))
@@ -73,8 +84,22 @@ class FormTest(TestCase):
         with self.assertRaises(ValidationError):
             validate_isdigit("I")
 
+    def test_is_valid(self):
+        self.assertTrue(PatientForm(self.patient).is_valid())
 
-class AdminTest(TestCase):
+    def test_is_not_valid(self):
+        self.assertFalse(PatientForm({}).is_valid())
+
+    def test_raised_error_clean_room(self):
+        Patient.objects.create(**self.patient)
+        form = PatientForm()
+        form.cleaned_data = dict(**self.patient)
+
+        with self.assertRaises(ValidationError):
+            form.clean_room()
+
+
+class PatientAdminTest(TestCase):
     def setUp(self):
         self.model_admin = PatientAdmin(Patient, admin.site)
         Patient.objects.create(
@@ -89,3 +114,13 @@ class AdminTest(TestCase):
 
     def test_has_form(self):
         self.assertTrue(self.model_admin.form)
+
+
+class RoomAdminTest(TestCase):
+    def setUp(self):
+        self.model_admin = RoomAdmin(Patient, admin.site)
+        Room.objects.create(ward="A", bed=1)
+
+    def test_get_shift(self):
+        expected = self.model_admin.see_more(self.model_admin.model.objects.first())
+        self.assertEqual("Ver detalhes", expected)

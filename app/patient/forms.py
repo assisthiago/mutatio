@@ -27,6 +27,7 @@ class PatientForm(forms.ModelForm):
         try:
             if not self.instance.id and data.patient:
                 raise ValidationError(f"Quarto encontra-se ocupado.")
+
         except ObjectDoesNotExist:
             pass
 
