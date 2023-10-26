@@ -53,11 +53,10 @@ class Patient(models.Model):
     updated_at = models.DateTimeField("atualizado em", auto_now=True)
 
     # Relationships
-    diagnosis = models.ForeignKey(
+    diagnoses = models.ManyToManyField(
         Diagnosis,
         related_name="patients",
-        on_delete=models.CASCADE,
-        verbose_name="diagnóstico",
+        verbose_name="diagnósticos",
     )
 
     room = models.OneToOneField(

@@ -327,72 +327,72 @@
         "model": "auth.permission",
         "pk": 37,
         "fields": {
-            "name": "Can add quarto",
+            "name": "Can add paciente",
             "content_type": 10,
-            "codename": "add_room"
+            "codename": "add_patient"
         }
     },
     {
         "model": "auth.permission",
         "pk": 38,
         "fields": {
-            "name": "Can change quarto",
+            "name": "Can change paciente",
             "content_type": 10,
-            "codename": "change_room"
+            "codename": "change_patient"
         }
     },
     {
         "model": "auth.permission",
         "pk": 39,
         "fields": {
-            "name": "Can delete quarto",
+            "name": "Can delete paciente",
             "content_type": 10,
-            "codename": "delete_room"
+            "codename": "delete_patient"
         }
     },
     {
         "model": "auth.permission",
         "pk": 40,
         "fields": {
-            "name": "Can view quarto",
+            "name": "Can view paciente",
             "content_type": 10,
-            "codename": "view_room"
+            "codename": "view_patient"
         }
     },
     {
         "model": "auth.permission",
         "pk": 41,
         "fields": {
-            "name": "Can add paciente",
+            "name": "Can add quarto",
             "content_type": 11,
-            "codename": "add_patient"
+            "codename": "add_room"
         }
     },
     {
         "model": "auth.permission",
         "pk": 42,
         "fields": {
-            "name": "Can change paciente",
+            "name": "Can change quarto",
             "content_type": 11,
-            "codename": "change_patient"
+            "codename": "change_room"
         }
     },
     {
         "model": "auth.permission",
         "pk": 43,
         "fields": {
-            "name": "Can delete paciente",
+            "name": "Can delete quarto",
             "content_type": 11,
-            "codename": "delete_patient"
+            "codename": "delete_room"
         }
     },
     {
         "model": "auth.permission",
         "pk": 44,
         "fields": {
-            "name": "Can view paciente",
+            "name": "Can view quarto",
             "content_type": 11,
-            "codename": "view_patient"
+            "codename": "view_room"
         }
     },
     {
@@ -435,16 +435,16 @@
         "model": "auth.user",
         "pk": 1,
         "fields": {
-            "password": "pbkdf2_sha256$600000$wJU47wN2kQ2rAwjYY6TvpJ$43diJlcjFud2yGaXrKqmmYqb/5yXH17GuZITvCLfbEI=",
-            "last_login": "2023-10-25T22:15:01Z",
+            "password": "pbkdf2_sha256$600000$imj7FkM2jtVDAAFeOLTCwN$63P8V7nmqnYIV7CZGj1IeOhuX8JVyKVfaSpW5dgLrvg=",
+            "last_login": "2023-10-26T18:01:21Z",
             "is_superuser": true,
-            "username": "thiago.assis",
-            "first_name": "Thiago",
-            "last_name": "Assis",
-            "email": "thiago.assis@email.com",
+            "username": "admin",
+            "first_name": "Admin",
+            "last_name": "Admin",
+            "email": "admin@admin.com",
             "is_staff": true,
             "is_active": true,
-            "date_joined": "2023-10-25T22:14:47Z",
+            "date_joined": "2023-10-26T18:01:11Z",
             "groups": [],
             "user_permissions": []
         }
@@ -455,18 +455,48 @@
         "fields": {
             "user": 1,
             "phone": "21999999999",
-            "created_at": "2023-10-25T22:16:36.393Z",
-            "updated_at": "2023-10-25T22:16:36.393Z"
+            "created_at": "2023-10-26T18:01:43.477Z",
+            "updated_at": "2023-10-26T18:01:43.477Z"
         }
     },
     {
         "model": "patient.diagnosis",
         "pk": 1,
         "fields": {
-            "name": "Test Diagnosis",
-            "description": "Test Diagnosis description",
-            "created_at": "2023-10-25T22:17:57.430Z",
-            "updated_at": "2023-10-25T22:17:57.430Z"
+            "name": "Tuberculose",
+            "description": "N/A",
+            "created_at": "2023-10-26T18:01:51.179Z",
+            "updated_at": "2023-10-26T18:01:51.179Z"
+        }
+    },
+    {
+        "model": "patient.diagnosis",
+        "pk": 2,
+        "fields": {
+            "name": "HIV",
+            "description": "N/A",
+            "created_at": "2023-10-26T18:01:55.467Z",
+            "updated_at": "2023-10-26T18:01:55.467Z"
+        }
+    },
+    {
+        "model": "patient.diagnosis",
+        "pk": 3,
+        "fields": {
+            "name": "Meningite",
+            "description": "N/A",
+            "created_at": "2023-10-26T18:02:24.845Z",
+            "updated_at": "2023-10-26T18:02:24.845Z"
+        }
+    },
+    {
+        "model": "patient.diagnosis",
+        "pk": 4,
+        "fields": {
+            "name": "Gripe",
+            "description": "N/A",
+            "created_at": "2023-10-26T18:02:30.077Z",
+            "updated_at": "2023-10-26T18:02:30.077Z"
         }
     },
     {
@@ -486,33 +516,160 @@
         }
     },
     {
+        "model": "patient.room",
+        "pk": 3,
+        "fields": {
+            "ward": "B",
+            "bed": 2
+        }
+    },
+    {
         "model": "patient.patient",
         "pk": 1,
         "fields": {
-            "name": "John Doe",
+            "name": "João da Silva",
             "age": 18,
             "medical_record": 1,
-            "hospitalized_in": "2023-10-25",
-            "sorted_in": "2023-10-25",
-            "nutritional_route": "Nutricional route test",
+            "hospitalized_in": "2023-10-26",
+            "sorted_in": "2023-10-26",
+            "nutritional_route": "N/A",
             "eligible": true,
-            "created_at": "2023-10-25T22:21:03.923Z",
-            "updated_at": "2023-10-25T22:52:11.005Z",
-            "diagnosis": 1,
-            "room": 1
+            "created_at": "2023-10-26T18:03:25.277Z",
+            "updated_at": "2023-10-26T18:03:25.277Z",
+            "room": 1,
+            "diagnoses": [
+                1,
+                2,
+                3,
+                4
+            ]
+        }
+    },
+    {
+        "model": "patient.patient",
+        "pk": 2,
+        "fields": {
+            "name": "Joana de Maria",
+            "age": 19,
+            "medical_record": 2,
+            "hospitalized_in": "2023-10-26",
+            "sorted_in": "2023-10-26",
+            "nutritional_route": "N/A",
+            "eligible": false,
+            "created_at": "2023-10-26T18:04:06.670Z",
+            "updated_at": "2023-10-26T18:06:41.571Z",
+            "room": 2,
+            "diagnoses": [
+                4
+            ]
+        }
+    },
+    {
+        "model": "patient.patient",
+        "pk": 3,
+        "fields": {
+            "name": "Antônio Maria",
+            "age": 42,
+            "medical_record": 3,
+            "hospitalized_in": "2023-10-26",
+            "sorted_in": "2023-10-26",
+            "nutritional_route": "N/A",
+            "eligible": true,
+            "created_at": "2023-10-26T18:04:40.403Z",
+            "updated_at": "2023-10-26T18:04:40.403Z",
+            "room": 3,
+            "diagnoses": [
+                1,
+                3
+            ]
         }
     },
     {
         "model": "report.report",
         "pk": 1,
         "fields": {
+            "patient": 3,
+            "ventilation_mode": "N/A",
+            "initial_nutritional_route": "N/A",
+            "actual_nutritional_route": "N/A",
+            "treatment": "N/A",
+            "conduct": "N/A",
+            "observation": "N/A",
+            "created_at": "2023-10-25",
+            "updated_at": "2023-10-25"
+        }
+    },
+    {
+        "model": "report.report",
+        "pk": 2,
+        "fields": {
+            "patient": 2,
+            "ventilation_mode": "N/A",
+            "initial_nutritional_route": "N/A",
+            "actual_nutritional_route": "N/A",
+            "treatment": "N/A",
+            "conduct": "N/A",
+            "observation": "N/A",
+            "created_at": "2023-10-25",
+            "updated_at": "2023-10-25"
+        }
+    },
+    {
+        "model": "report.report",
+        "pk": 3,
+        "fields": {
             "patient": 1,
-            "ventilation_mode": "Ventilation mode test",
-            "initial_nutritional_route": "Initial nutricional route test",
-            "actual_nutritional_route": "Actual nutricional route test",
-            "treatment": "Treatment test",
-            "conduct": "Conduct test",
-            "observation": "Observation test",
+            "ventilation_mode": "N/A",
+            "initial_nutritional_route": "N/A",
+            "actual_nutritional_route": "N/A",
+            "treatment": "N/A",
+            "conduct": "N/A",
+            "observation": "N/A",
+            "created_at": "2023-10-25",
+            "updated_at": "2023-10-25"
+        }
+    },
+    {
+        "model": "report.report",
+        "pk": 4,
+        "fields": {
+            "patient": 3,
+            "ventilation_mode": "N/A",
+            "initial_nutritional_route": "N/A",
+            "actual_nutritional_route": "N/A",
+            "treatment": "N/A",
+            "conduct": "N/A",
+            "observation": "N/A",
+            "created_at": "2023-10-24",
+            "updated_at": "2023-10-24"
+        }
+    },
+    {
+        "model": "report.report",
+        "pk": 5,
+        "fields": {
+            "patient": 2,
+            "ventilation_mode": "N/A",
+            "initial_nutritional_route": "N/A",
+            "actual_nutritional_route": "N/A",
+            "treatment": "N/A",
+            "conduct": "N/A",
+            "observation": "N/A",
+            "created_at": "2023-10-24",
+            "updated_at": "2023-10-24"
+        }
+    },
+    {
+        "model": "report.report",
+        "pk": 6,
+        "fields": {
+            "patient": 1,
+            "ventilation_mode": "N/A",
+            "initial_nutritional_route": "N/A",
+            "actual_nutritional_route": "N/A",
+            "treatment": "N/A",
+            "conduct": "N/A",
+            "observation": "N/A",
             "created_at": "2023-10-24",
             "updated_at": "2023-10-24"
         }

@@ -3,7 +3,7 @@ import re
 from django import forms
 from django.core.exceptions import ObjectDoesNotExist, ValidationError
 
-from app.patient.models import Patient
+from app.patient.models import Diagnosis, Patient
 
 
 def validate_isdigit(value):
