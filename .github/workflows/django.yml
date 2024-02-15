@@ -33,3 +33,12 @@ jobs:
     - name: Run Tests
       run: |
         python manage.py test
+    - name: Create Coverage
+      run: |
+        coverage run --data-file=".github/coverage/.coverage" --source='.' manage.py test
+        coverage xml --data-file=".github/coverage/.coverage" -o .github/coverage/coverage.xml
+    - name: Get Coverage
+      uses: orgoro/coverage@v3.1
+      with:
+        coverageFile: .github/coverage/coverage.xml
+        token: ${{ secrets.GITHUB_TOKEN }}
