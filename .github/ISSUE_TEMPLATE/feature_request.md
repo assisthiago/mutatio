@@ -3,7 +3,6 @@ name: Feature request
 about: Angelus Domini nuntiavit Mariae.
 title: ''
 labels: enhancement
-projects: mutatio project
 assignees: assisthiago
 
 ---
