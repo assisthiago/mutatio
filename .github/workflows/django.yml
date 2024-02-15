@@ -12,8 +12,8 @@ env:
   ALLOWED_HOSTS: 127.0.0.1, localhost
 
 jobs:
-  build:
-
+  build-test-coverage:
+    permissions: write-all
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 4
