@@ -123,3 +123,6 @@ INTERNAL_IPS = ["127.0.0.1"]
 
 # Auditlog
 AUDITLOG_INCLUDE_ALL_MODELS = True
+
+# Login redirect
+LOGIN_URL = "/sign-in/"
