@@ -4,8 +4,11 @@ from django.contrib import admin
 from django.urls import include, path, reverse_lazy
 from django.views.generic.base import RedirectView
 
+import app.core.views
+
 urlpatterns = [
     path("", RedirectView.as_view(url=reverse_lazy("admin:index"))),
     path("admin/", admin.site.urls),
+    path("signin/", app.core.views.signin),
     path("__debug__/", include("debug_toolbar.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
