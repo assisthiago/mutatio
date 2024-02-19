@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     "test_without_migrations",
     "debug_toolbar",
     "auditlog",
+    "app.core",
     "app.employer",
     "app.patient",
     "app.report",
