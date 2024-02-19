@@ -1,0 +1,105 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="{% static '/favicon/favicon.ico' %}" type="image/x-icon">
+
+  <!-- Map CSS -->
+  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css">
+
+  <!-- Libs CSS -->
+  <link rel="stylesheet" href="{% static '/css/libs.bundle.css' %}">
+
+  <!-- Theme CSS -->
+  <link rel="stylesheet" href="{% static '/css/theme.bundle.css' %}">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{% static '/css/custom.css' %}">
+
+  <!-- Title -->
+  <title>Mutatio</title>
+</head>
+
+<body>
+  {% if messages %}
+  {% for message in messages %}
+  <div id="message-alert"
+    class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %}" role="alert">
+    <span>{{ message }}</span>
+    <button class="btn btn-xs" id="btn-close" onclick="closeAlert()">
+      <i class="fe fe-x"></i>
+    </button>
+  </div>
+  {% endfor %}
+  {% endif %}
+
+  <!-- CONTENT -->
+  <section>
+    <div class="container d-flex flex-column">
+      <div class="row align-items-center justify-content-center gx-0 min-vh-100">
+        <div class="col-12 col-md-6 col-lg-4 py-8 py-md-11">
+
+          <!-- Heading -->
+          <h1 class="mb-0 fw-bold">
+            Bem-vindo(a)
+          </h1>
+
+          <!-- Text -->
+          <p class="mb-6 text-body-secondary">
+            Entre na sua conta para continuar.
+          </p>
+
+          <!-- Form -->
+          <form class="mb-6" action="{% url 'sign-in' %}" method="post">
+            {% csrf_token %}
+
+            <div class="form-group form-floating">
+              {{ form.username }}
+              <label for="username">{{ form.username.label }}</label>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group form-floating mb-5">
+              {{ form.password }}
+              <label for="username">{{ form.password.label }}</label>
+            </div>
+
+            <!-- Submit -->
+            <button class="btn w-100 btn-primary" type="submit">
+              Entrar
+            </button>
+
+          </form>
+
+        </div>
+        <div class="col-lg-7 offset-lg-1 align-self-stretch d-none d-lg-block">
+
+          <!-- Image -->
+          <div class="h-100 w-cover bg-cover"
+            style="background-image: url({% static '/img/covers/cover-signin.jpeg' %});">
+          </div>
+
+          <!-- Shape -->
+          <div class="shape shape-start shape-fluid-y text-white">
+            <svg viewBox="0 0 100 1544" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 0h100v386l-50 772v386H0V0z" fill="currentColor" /></svg> </div>
+
+        </div>
+      </div> <!-- / .row -->
+    </div> <!-- / .container -->
+  </section>
+
+  <!-- JAVASCRIPT -->
+  <!-- Theme JS -->
+  <script src="{% static '/js/theme.bundle.js' %}"></script>
+  <script src="{% static '/js/custom.js' %}"></script>
+
+</body>
+
+</html>

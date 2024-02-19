@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     "test_without_migrations",
     "debug_toolbar",
     "auditlog",
+    "app.core",
     "app.employer",
     "app.patient",
     "app.report",
@@ -122,3 +123,6 @@ INTERNAL_IPS = ["127.0.0.1"]
 
 # Auditlog
 AUDITLOG_INCLUDE_ALL_MODELS = True
+
+# Login redirect
+LOGIN_URL = "/sign-in/"
