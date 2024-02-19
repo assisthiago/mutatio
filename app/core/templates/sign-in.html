@@ -19,11 +19,25 @@
   <!-- Theme CSS -->
   <link rel="stylesheet" href="{% static '/css/theme.bundle.css' %}">
 
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{% static '/css/custom.css' %}">
+
   <!-- Title -->
-  <title>Landkit</title>
+  <title>Mutatio</title>
 </head>
 
 <body>
+  {% if messages %}
+  {% for message in messages %}
+  <div id="message-alert"
+    class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %}" role="alert">
+    <span>{{ message }}</span>
+    <button class="btn btn-xs" id="btn-close" onclick="closeAlert()">
+      <i class="fe fe-x"></i>
+    </button>
+  </div>
+  {% endfor %}
+  {% endif %}
 
   <!-- CONTENT -->
   <section>
@@ -38,21 +52,22 @@
 
           <!-- Text -->
           <p class="mb-6 text-body-secondary">
-            Coloque seus dados para acessar a plataforma.
+            Entre na sua conta para continuar.
           </p>
 
           <!-- Form -->
-          <form class="mb-6">
+          <form class="mb-6" action="{% url 'sign-in' %}" method="post">
+            {% csrf_token %}
 
             <div class="form-group form-floating">
-              <input type="text" class="form-control" id="username" placeholder="nome.sobrenome">
-              <label for="username">Usuário</label>
+              {{ form.username }}
+              <label for="username">{{ form.username.label }}</label>
             </div>
 
             <!-- Password -->
             <div class="form-group form-floating mb-5">
-              <input type="password" class="form-control" id="password" placeholder="Entre com sua senha">
-              <label for="password">Senha</label>
+              {{ form.password }}
+              <label for="username">{{ form.password.label }}</label>
             </div>
 
             <!-- Submit -->
@@ -83,6 +98,7 @@
   <!-- JAVASCRIPT -->
   <!-- Theme JS -->
   <script src="{% static '/js/theme.bundle.js' %}"></script>
+  <script src="{% static '/js/custom.js' %}"></script>
 
 </body>
 

@@ -9,6 +9,6 @@ import app.core.views
 urlpatterns = [
     path("", RedirectView.as_view(url=reverse_lazy("admin:index"))),
     path("admin/", admin.site.urls),
-    path("signin/", app.core.views.signin),
+    path("sign-in/", app.core.views.signin, name="sign-in"),
     path("__debug__/", include("debug_toolbar.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

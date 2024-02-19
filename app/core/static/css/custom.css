@@ -1,0 +1,10 @@
+.alert {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 9999;
+}
+
+.alert #btn-close i {
+    color: white;
+}
