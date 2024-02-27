@@ -37,7 +37,7 @@ def signin(request):
             messages.error(request, "Verifique seus dados.")
             return render(request, "sign-in.html", {"form": form})
 
-        return redirect("index")
+        return redirect("report")
 
     return render(request, "sign-in.html", {"form": SignInForm()})
 
@@ -48,5 +48,5 @@ def signout(request):
 
 
 @login_required
-def index(request):
-    return render(request, "index.html")
+def report(request):
+    return render(request, "report.html")
