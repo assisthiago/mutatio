@@ -396,42 +396,6 @@
         }
     },
     {
-        "model": "auth.permission",
-        "pk": 45,
-        "fields": {
-            "name": "Can add relatório",
-            "content_type": 12,
-            "codename": "add_report"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 46,
-        "fields": {
-            "name": "Can change relatório",
-            "content_type": 12,
-            "codename": "change_report"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 47,
-        "fields": {
-            "name": "Can delete relatório",
-            "content_type": 12,
-            "codename": "delete_report"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 48,
-        "fields": {
-            "name": "Can view relatório",
-            "content_type": 12,
-            "codename": "view_report"
-        }
-    },
-    {
         "model": "auth.user",
         "pk": 1,
         "fields": {
