@@ -6,6 +6,7 @@ from django.shortcuts import redirect, render
 from django.shortcuts import resolve_url as r
 
 from app.core.forms import SignInForm
+from app.report.models import Report
 
 
 def _login(request, form):
@@ -37,7 +38,7 @@ def signin(request):
             messages.error(request, "Verifique seus dados.")
             return render(request, "sign-in.html", {"form": form})
 
-        return redirect("index")
+        return redirect("reports-list")
 
     return render(request, "sign-in.html", {"form": SignInForm()})
 
@@ -48,5 +49,12 @@ def signout(request):
 
 
 @login_required
-def index(request):
-    return render(request, "index.html")
+def reports_list(request):
+    reports = Report.objects.all()
+    return render(request, "reports-list.html", {"reports": reports})
+
+
+@login_required
+def reports_detail(request, pk):
+    reports = Report.objects.all()
+    return render(request, "reports-list.html", {"reports": reports})
