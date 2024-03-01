@@ -26,29 +26,34 @@
 
   <!-- HEADER -->
   <header class="bg-dark pt-9 pb-11 d-none d-md-block">
-    <div class="container-md">
-      <div class="row align-items-center">
-        <div class="col">
+    <div class="container-fluid">
+      <div class="row justify-content-md-center">
+        <div class="col-10">
+          <div class="row">
+            <div class="col">
 
-          <!-- Heading -->
-          <h1 class="fw-bold text-white mb-2">
-            MUTATIO
-          </h1>
+              <!-- Heading -->
+              <h1 class="fw-bold text-white mb-2">
+                MUTATIO
+              </h1>
 
-          <!-- Text -->
-          <p class="fs-lg text-white text-opacity-75 mb-0">
-            Sessão do(a) {{ user.first_name }} {{ user.last_name }}.
-          </p>
+              <!-- Text -->
+              <p class="fs-lg text-white text-opacity-75 mb-0">
+                Sessão do(a) {{ user.first_name }} {{ user.last_name }}.
+              </p>
 
-        </div>
-        <div class="col-auto">
+            </div>
+            <div class="col-auto">
 
-          <!-- Button -->
-          <a class="btn btn-sm bg-gray-300 bg-opacity-20 bg-opacity-25-hover text-white" href="{% url 'sign-out' %}">
-            <i class="fe fe-log-out me-1"></i>
-            Sair
-          </a>
+              <!-- Button -->
+              <a class="btn btn-sm bg-gray-300 bg-opacity-20 bg-opacity-25-hover text-white"
+                href="{% url 'sign-out' %}">
+                <i class="fe fe-log-out me-1"></i>
+                Sair
+              </a>
 
+            </div>
+          </div>
         </div>
       </div> <!-- / .row -->
     </div> <!-- / .container -->
@@ -73,7 +78,7 @@
       <div class="row justify-content-md-center">
         <div class="col-10">
           <div class="row">
-            <div class="col-12 col-md-3">
+            <div class="col-12 col-md-2">
 
               <!-- Sidebar -->
               <div class="card card-bleed border-bottom border-bottom-md-0 shadow-light-lg">
@@ -127,7 +132,7 @@
 
             </div>
 
-            <div class="col-12 col-md-9">
+            <div class="col-12 col-md-10">
 
               <!-- Content -->
               {% block content %}{% endblock content %}

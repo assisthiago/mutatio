@@ -38,7 +38,7 @@ def signin(request):
             messages.error(request, "Verifique seus dados.")
             return render(request, "sign-in.html", {"form": form})
 
-        return redirect("report")
+        return redirect("reports-list")
 
     return render(request, "sign-in.html", {"form": SignInForm()})
 
@@ -51,10 +51,10 @@ def signout(request):
 @login_required
 def reports_list(request):
     reports = Report.objects.all()
-    return render(request, "report.html", {"reports": reports})
+    return render(request, "reports-list.html", {"reports": reports})
 
 
 @login_required
 def reports_detail(request, pk):
     reports = Report.objects.all()
-    return render(request, "report.html", {"reports": reports})
+    return render(request, "reports-list.html", {"reports": reports})
