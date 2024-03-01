@@ -145,8 +145,11 @@ class PatientAdminTest(TestCase):
 class RoomAdminTest(TestCase):
     def setUp(self):
         self.model_admin = RoomAdmin(Patient, admin.site)
-        Room.objects.create(ward="A", bed=1)
+        self.room = Room.objects.create(ward="A", bed=1)
 
     def test_get_shift(self):
         expected = self.model_admin.see_more(self.model_admin.model.objects.first())
         self.assertEqual("Ver detalhes", expected)
+
+    def test_str(self):
+        self.assertEqual("A1", str(self.room))

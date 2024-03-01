@@ -1,5 +1,3 @@
-from auditlog.models import AuditlogHistoryField
-from auditlog.registry import auditlog
 from django.contrib.auth.models import User
 from django.db import models
 
@@ -12,8 +10,6 @@ class Employer(models.Model):
     created_at = models.DateTimeField("criado em", auto_now_add=True)
     updated_at = models.DateTimeField("atualizado em", auto_now=True)
 
-    history = AuditlogHistoryField()
-
     def __str__(self) -> str:
         return f"{self.user.first_name} {self.user.last_name}".title()
 
@@ -21,6 +17,3 @@ class Employer(models.Model):
         db_table = "employer"
         verbose_name = "empregado"
         verbose_name_plural = "empregados"
-
-
-auditlog.register(Employer)

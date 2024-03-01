@@ -30,7 +30,6 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "test_without_migrations",
     "debug_toolbar",
-    "auditlog",
     "app.core",
     "app.employer",
     "app.patient",
@@ -47,7 +46,6 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "debug_toolbar.middleware.DebugToolbarMiddleware",
-    "auditlog.middleware.AuditlogMiddleware",
 ]
 
 ROOT_URLCONF = "app.urls"
@@ -120,9 +118,6 @@ STATIC_ROOT = str(BASE_DIR / "staticfiles")
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 INTERNAL_IPS = ["127.0.0.1"]
-
-# Auditlog
-AUDITLOG_INCLUDE_ALL_MODELS = True
 
 # Login redirect
 LOGIN_URL = "/sign-in/"
