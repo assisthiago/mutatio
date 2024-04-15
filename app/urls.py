@@ -1,12 +1,13 @@
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import include, path, reverse_lazy
+from django.views.generic.base import RedirectView
 
 import app.core.views
 
 urlpatterns = [
-    path("reports/", app.core.views.reports_list, name="reports-list"),
+    path("", RedirectView.as_view(url=reverse_lazy("admin:index"))),
     path("reports/<int:pk>/", app.core.views.reports_detail, name="reports-detail"),
     path("sign-in/", app.core.views.signin, name="sign-in"),
     path("sign-out/", app.core.views.signout, name="sign-out"),
