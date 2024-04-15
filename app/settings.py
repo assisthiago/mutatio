@@ -30,7 +30,6 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "test_without_migrations",
     "debug_toolbar",
-    "app.core",
     "app.employer",
     "app.patient",
     "app.report",
