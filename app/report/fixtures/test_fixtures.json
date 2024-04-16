@@ -253,42 +253,6 @@
     },
     {
         "model": "auth.permission",
-        "pk": 29,
-        "fields": {
-            "name": "Can add empregado",
-            "content_type": 8,
-            "codename": "add_employer"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 30,
-        "fields": {
-            "name": "Can change empregado",
-            "content_type": 8,
-            "codename": "change_employer"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 31,
-        "fields": {
-            "name": "Can delete empregado",
-            "content_type": 8,
-            "codename": "delete_employer"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 32,
-        "fields": {
-            "name": "Can view empregado",
-            "content_type": 8,
-            "codename": "view_employer"
-        }
-    },
-    {
-        "model": "auth.permission",
         "pk": 33,
         "fields": {
             "name": "Can add diagnóstico",
@@ -360,42 +324,6 @@
         }
     },
     {
-        "model": "auth.permission",
-        "pk": 41,
-        "fields": {
-            "name": "Can add quarto",
-            "content_type": 11,
-            "codename": "add_room"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 42,
-        "fields": {
-            "name": "Can change quarto",
-            "content_type": 11,
-            "codename": "change_room"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 43,
-        "fields": {
-            "name": "Can delete quarto",
-            "content_type": 11,
-            "codename": "delete_room"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 44,
-        "fields": {
-            "name": "Can view quarto",
-            "content_type": 11,
-            "codename": "view_room"
-        }
-    },
-    {
         "model": "auth.user",
         "pk": 1,
         "fields": {
@@ -411,16 +339,6 @@
             "date_joined": "2023-10-26T18:01:11Z",
             "groups": [],
             "user_permissions": []
-        }
-    },
-    {
-        "model": "employer.employer",
-        "pk": 1,
-        "fields": {
-            "user": 1,
-            "phone": "21999999999",
-            "created_at": "2023-10-26T18:01:43.477Z",
-            "updated_at": "2023-10-26T18:01:43.477Z"
         }
     },
     {
