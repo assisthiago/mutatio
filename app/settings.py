@@ -30,7 +30,6 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "test_without_migrations",
     "debug_toolbar",
-    "app.employer",
     "app.patient",
     "app.report",
     "django_object_actions",
@@ -119,4 +118,4 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 INTERNAL_IPS = ["127.0.0.1"]
 
 # Login redirect
-LOGIN_URL = "/sign-in/"
+LOGIN_URL = "/admin/login/?next=/admin/"
