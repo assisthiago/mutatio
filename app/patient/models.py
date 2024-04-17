@@ -1,3 +1,4 @@
+from auditlog.models import AuditlogHistoryField
 from auditlog.registry import auditlog
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
@@ -9,6 +10,7 @@ class Diagnosis(models.Model):
     description = models.TextField("descrição", max_length=100, default="N/A")
     created_at = models.DateTimeField("criado em", auto_now_add=True)
     updated_at = models.DateTimeField("atualizado em", auto_now=True)
+    history = AuditlogHistoryField()
 
     def __str__(self) -> str:
         return self.name
@@ -22,6 +24,7 @@ class Diagnosis(models.Model):
 class Room(models.Model):
     ward = models.CharField("enfermaria", max_length=10)
     bed = models.PositiveSmallIntegerField("leito")
+    history = AuditlogHistoryField()
 
     def __str__(self) -> str:
         return f"{self.ward}{self.bed}"
@@ -48,6 +51,7 @@ class Patient(models.Model):
     eligible = models.BooleanField("elegível", default=False)
     created_at = models.DateTimeField("criado em", auto_now_add=True)
     updated_at = models.DateTimeField("atualizado em", auto_now=True)
+    history = AuditlogHistoryField()
 
     # Relationships
     diagnoses = models.ManyToManyField(
