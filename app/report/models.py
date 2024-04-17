@@ -1,3 +1,5 @@
+from auditlog.models import AuditlogHistoryField
+from auditlog.registry import auditlog
 from django.db import models
 
 from app.patient.models import Patient
@@ -21,6 +23,7 @@ class Report(models.Model):
     observation = models.TextField("observação", max_length=255, default="N/A")
     created_at = models.DateField("criado em", auto_now_add=True)
     updated_at = models.DateField("atualizado em", auto_now=True)
+    history = AuditlogHistoryField()
 
     objects = ReportManager.as_manager()
 
@@ -37,3 +40,6 @@ class Report(models.Model):
         ]
         verbose_name = "relatório"
         verbose_name_plural = "relatórios"
+
+
+auditlog.register(Report)
