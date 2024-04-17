@@ -1,3 +1,4 @@
+from auditlog.registry import auditlog
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from django.urls import reverse
@@ -73,3 +74,9 @@ class Patient(models.Model):
         db_table = "patient"
         verbose_name = "paciente"
         verbose_name_plural = "pacientes"
+
+
+# Automatically logging changes.
+auditlog.register(Diagnosis)
+auditlog.register(Room)
+auditlog.register(Patient)

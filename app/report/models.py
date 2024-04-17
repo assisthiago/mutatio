@@ -1,3 +1,4 @@
+from auditlog.registry import auditlog
 from django.db import models
 
 from app.patient.models import Patient
@@ -37,3 +38,6 @@ class Report(models.Model):
         ]
         verbose_name = "relatório"
         verbose_name_plural = "relatórios"
+
+
+auditlog.register(Report)
