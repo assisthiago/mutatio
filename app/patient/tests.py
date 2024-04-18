@@ -48,7 +48,7 @@ class PatientModelTest(TestCase):
 
     def test_admin_url(self):
         self.assertEqual(
-            "/admin/patient/patient/1/change/", self.patient.get_admin_url()
+            "/admin/patient/patient/4/change/", self.patient.get_admin_url()
         )
 
 
