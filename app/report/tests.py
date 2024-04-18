@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, timedelta
 from unittest.mock import Mock
 
 from django.contrib import messages
@@ -11,28 +11,11 @@ from app.report.models import Report
 
 
 class ModelTest(TestCase):
+
+    fixtures = ["auth", "patient", "report"]
+
     def setUp(self):
-        diagnosis = Diagnosis.objects.create(name="disease test")
-        patient = Patient(
-            name="patient test",
-            age=99,
-            medical_record="1",
-            hospitalized_in=date.today(),
-            sorted_in=date.today(),
-            room=Room.objects.create(ward="A", bed=1),
-        )
-
-        patient.save()
-        patient.diagnoses.set([diagnosis])
-
-        self.report = Report.objects.create(
-            ventilation_mode="",
-            initial_nutritional_route="",
-            actual_nutritional_route="",
-            treatment="",
-            conduct="",
-            patient=patient,
-        )
+        self.report = Report.objects.first()
 
     def test_create(self):
         self.assertTrue(Report.objects.exists())
@@ -48,27 +31,18 @@ class ModelTest(TestCase):
 
 
 class ManagerTest(TestCase):
+
+    fixtures = ["auth", "patient", "report"]
+
     def setUp(self):
-        diagnosis = Diagnosis.objects.create(name="disease test")
-        patient = Patient(
-            name="patient test",
-            age=99,
-            medical_record="1",
-            hospitalized_in=date.today(),
-            sorted_in=date.today(),
-            room=Room.objects.create(ward="A", bed=1),
-        )
-
-        patient.save()
-        patient.diagnoses.set([diagnosis])
-
         Report.objects.create(
-            ventilation_mode="",
-            initial_nutritional_route="",
-            actual_nutritional_route="",
-            treatment="",
-            conduct="",
-            patient=patient,
+            ventilation_mode="Ar ambiente",
+            initial_nutritional_route="Sonda",
+            actual_nutritional_route="Via oral",
+            treatment="Sim",
+            conduct="Via oral.",
+            observation="Mais sonda.",
+            patient=Patient.objects.first(),
         )
 
     def test_report_from_today(self):
@@ -86,38 +60,29 @@ class ManagerTest(TestCase):
 
 
 class FormTest(TestCase):
+
+    fixtures = ["auth", "patient", "report"]
+
     def setUp(self):
-        diagnosis = Diagnosis.objects.create(name="disease test")
-        patient = Patient(
-            name="patient test",
-            age=99,
-            medical_record="1",
-            hospitalized_in=date.today(),
-            sorted_in=date.today(),
-            room=Room.objects.create(ward="A", bed=1),
-        )
-
-        patient.save()
-        patient.diagnoses.set([diagnosis])
-
         Report.objects.create(
-            ventilation_mode="ventilation_mode",
-            initial_nutritional_route="ventilation_mode",
-            actual_nutritional_route="ventilation_mode",
-            treatment="ventilation_mode",
-            conduct="ventilation_mode",
-            patient=patient,
+            ventilation_mode="Ar ambiente",
+            initial_nutritional_route="Sonda",
+            actual_nutritional_route="Via oral",
+            treatment="Sim",
+            conduct="Via oral.",
+            observation="Mais sonda.",
+            patient=Patient.objects.first(),
         )
 
         self.form = ReportForm(
             dict(
-                ventilation_mode="ventilation_mode",
-                initial_nutritional_route="initial_nutritional_route",
-                actual_nutritional_route="actual_nutritional_route",
-                treatment="treatment",
-                conduct="conduct",
-                observation="observation",
-                patient=patient,
+                ventilation_mode="Ar ambiente",
+                initial_nutritional_route="Sonda",
+                actual_nutritional_route="Via oral",
+                treatment="Sim",
+                conduct="Via oral.",
+                observation="Mais sonda.",
+                patient=Patient.objects.first(),
             )
         )
 
@@ -136,17 +101,21 @@ class FormTest(TestCase):
     def test_validation_error(self):
         self.form.is_valid()
         self.assertEqual(
-            "Paciente Patient Test já registrado em um relatório para o dia de hoje.",
+            "Paciente João Silva já registrado em um relatório para o dia de hoje.",
             self.form.errors.as_data().get("__all__")[0].message,
         )
 
 
 class AdminTest(TestCase):
-    fixtures = ["test_fixtures.json"]
+
+    fixtures = ["auth", "patient", "report"]
 
     def setUp(self):
         self.model_admin = ReportAdmin(Report, admin.site)
         self.obj = Report.objects.first()
+        self.obj.created_at = date.today() - timedelta(days=1)
+        self.obj.updated_at = date.today() - timedelta(days=1)
+        self.obj.save()
 
     def test_has_form(self):
         self.assertTrue(self.model_admin.form)
@@ -168,16 +137,17 @@ class AdminTest(TestCase):
     def test_copy_previous_reports(self):
         mock = self._call_action()
         mock.assert_called_once_with(
-            None, "2 relatórios copiados com sucesso.", messages.SUCCESS
+            None, "1 relatório copiado com sucesso.", messages.SUCCESS
         )
 
     def test_copy_previous_reports_from_today(self):
         Report.objects.create(
-            ventilation_mode="",
-            initial_nutritional_route="",
-            actual_nutritional_route="",
-            treatment="",
-            conduct="",
+            ventilation_mode="Ar ambiente",
+            initial_nutritional_route="Sonda",
+            actual_nutritional_route="Via oral",
+            treatment="Sim",
+            conduct="Via oral.",
+            observation="Mais sonda.",
             patient=Patient.objects.first(),
         )
 

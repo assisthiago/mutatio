@@ -9,33 +9,22 @@ from app.patient.models import Diagnosis, Patient, Room
 
 
 class DiagnosisModelTest(TestCase):
+
+    fixtures = ["auth", "patient"]
+
     def setUp(self):
-        self.diagnosis = Diagnosis(name="disease test")
+        self.diagnosis = Diagnosis.objects.first()
 
     def test_str(self):
-        self.assertEqual(str(self.diagnosis), "disease test")
+        self.assertEqual(str(self.diagnosis), "Tuberculose")
 
 
 class PatientModelTest(TestCase):
+
+    fixtures = ["auth", "patient"]
+
     def setUp(self):
-        diagnoses = [
-            Diagnosis.objects.create(name="disease 1 test"),
-            Diagnosis.objects.create(name="disease 2 test"),
-        ]
-        self.patient = Patient(
-            name="patient test",
-            age=99,
-            medical_record="1",
-            hospitalized_in=date.today(),
-            sorted_in=date.today(),
-            room=Room.objects.create(ward="A", bed=1),
-        )
-
-        self.patient.save()
-        self.patient.diagnoses.set(diagnoses)
-
-    def test_create(self):
-        self.assertTrue(Patient.objects.exists())
+        self.patient = Patient.objects.first()
 
     def test_has_diagnoses(self):
         self.assertTrue(self.patient.diagnoses)
@@ -44,27 +33,28 @@ class PatientModelTest(TestCase):
         self.assertIsInstance(self.patient.diagnoses.first(), Diagnosis)
 
     def test_str(self):
-        self.assertEqual(str(self.patient), "Patient Test")
+        self.assertEqual(str(self.patient), "João Silva")
 
     def test_admin_url(self):
         self.assertEqual(
-            "/admin/patient/patient/4/change/", self.patient.get_admin_url()
+            "/admin/patient/patient/1/change/", self.patient.get_admin_url()
         )
 
 
 class PatientFormTest(TestCase):
-    def setUp(self) -> None:
-        self.diagnosis = Diagnosis.objects.create(name="disease test")
-        self.room = Room.objects.create(ward="A", bed=1)
+
+    fixtures = ["auth", "patient"]
+
+    def setUp(self):
         self.data = {
-            "name": "patient test",
-            "age": 99,
+            "name": "Maria Silva",
+            "age": 30,
             "medical_record": "1",
             "hospitalized_in": date.today(),
             "sorted_in": date.today(),
-            "nutritional_route": "nutritional route test",
-            "diagnoses": [self.diagnosis],
-            "room": self.room,
+            "nutritional_route": "Via oral",
+            "diagnoses": [Diagnosis.objects.first()],
+            "room": Room.objects.first(),
         }
 
     def test_form_has_fields(self):
@@ -90,25 +80,14 @@ class PatientFormTest(TestCase):
             validate_isdigit("I")
 
     def test_is_valid(self):
-        self.assertTrue(PatientForm(self.data).is_valid())
+        data = self.data
+        data["room"] = Room.objects.create(ward="Aa", bed=2)
+        self.assertTrue(PatientForm(data).is_valid())
 
     def test_is_not_valid(self):
         self.assertFalse(PatientForm({}).is_valid())
 
     def test_raised_error_clean_room(self):
-        patient = Patient(
-            name="patient test",
-            age=99,
-            medical_record="1",
-            hospitalized_in=date.today(),
-            sorted_in=date.today(),
-            nutritional_route="nutritional route test",
-            room=self.room,
-        )
-
-        patient.save()
-        patient.diagnoses.set([self.diagnosis])
-
         form = PatientForm()
         form.cleaned_data = dict(**self.data)
 
@@ -117,20 +96,11 @@ class PatientFormTest(TestCase):
 
 
 class PatientAdminTest(TestCase):
+
+    fixtures = ["auth", "patient"]
+
     def setUp(self):
         self.model_admin = PatientAdmin(Patient, admin.site)
-        patient = Patient(
-            name="patient test",
-            age=99,
-            medical_record="1",
-            hospitalized_in=date.today(),
-            sorted_in=date.today(),
-            nutritional_route="nutritional route test",
-            room=Room.objects.create(ward="A", bed=1),
-        )
-
-        patient.save()
-        patient.diagnoses.set([Diagnosis.objects.create(name="disease test")])
 
     def test_has_form(self):
         self.assertTrue(self.model_admin.form)
@@ -139,17 +109,19 @@ class PatientAdminTest(TestCase):
         expected = self.model_admin.get_diagnoses(
             self.model_admin.model.objects.first()
         )
-        self.assertEqual("disease test", expected)
+        self.assertEqual("Tuberculose", expected)
 
 
 class RoomAdminTest(TestCase):
+
+    fixtures = ["auth", "patient"]
+
     def setUp(self):
         self.model_admin = RoomAdmin(Patient, admin.site)
-        self.room = Room.objects.create(ward="A", bed=1)
 
     def test_get_shift(self):
         expected = self.model_admin.see_more(self.model_admin.model.objects.first())
         self.assertEqual("Ver detalhes", expected)
 
     def test_str(self):
-        self.assertEqual("A1", str(self.room))
+        self.assertEqual("Aa1", str(Room.objects.first()))
