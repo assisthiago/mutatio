@@ -1,0 +1,17 @@
+[
+{
+  "model": "report.report",
+  "pk": 1,
+  "fields": {
+    "patient": 1,
+    "ventilation_mode": "Ar ambiente",
+    "initial_nutritional_route": "Sonda",
+    "actual_nutritional_route": "Via oral",
+    "treatment": "Sim",
+    "conduct": "Via oral.",
+    "observation": "Mais sonda.",
+    "created_at": "2024-01-01",
+    "updated_at": "2024-01-01"
+  }
+}
+]

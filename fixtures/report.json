@@ -1,1 +1,0 @@
-[{"model": "report.report", "pk": 1, "fields": {"patient": 1, "ventilation_mode": "asd", "initial_nutritional_route": "asd", "actual_nutritional_route": "asd", "treatment": "asd", "conduct": "asd", "observation": "N/A", "created_at": "2023-11-10", "updated_at": "2023-11-10"}}]

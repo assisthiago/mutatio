@@ -1,0 +1,39 @@
+[
+{
+  "model": "patient.diagnosis",
+  "pk": 1,
+  "fields": {
+    "name": "Tuberculose",
+    "description": "É uma doença infeciosa geralmente causada pela bactéria Mycobacterium tuberculosis (MTB). A tuber",
+    "created_at": "2024-04-18T22:12:45.728Z",
+    "updated_at": "2024-04-18T22:12:45.728Z"
+  }
+},
+{
+  "model": "patient.room",
+  "pk": 1,
+  "fields": {
+    "ward": "Aa",
+    "bed": 1
+  }
+},
+{
+  "model": "patient.patient",
+  "pk": 1,
+  "fields": {
+    "name": "João Silva",
+    "age": 30,
+    "medical_record": 1,
+    "hospitalized_in": "2024-04-18",
+    "sorted_in": "2024-04-18",
+    "nutritional_route": "Via oral",
+    "eligible": true,
+    "created_at": "2024-04-18T22:14:11.125Z",
+    "updated_at": "2024-04-18T22:14:11.125Z",
+    "room": 1,
+    "diagnoses": [
+      1
+    ]
+  }
+}
+]
