@@ -1,14 +1,15 @@
 from datetime import datetime, time, timedelta
 
 from django.db import models
+from django.utils import timezone
 
 
 class ReportManager(models.QuerySet):
     def from_today(self, *args, **kwargs):
-        return self._filter(datetime.today(), **kwargs)
+        return self._filter(timezone.now(), **kwargs)
 
     def from_yesterday(self, *args, **kwargs):
-        return self._filter(datetime.today() - timedelta(days=1), **kwargs)
+        return self._filter(timezone.now() - timedelta(days=1), **kwargs)
 
     def last_availables(self, *args, **kwargs):
         if report := self.last():
