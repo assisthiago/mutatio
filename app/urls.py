@@ -4,6 +4,11 @@ from django.contrib import admin
 from django.urls import include, path
 from drf_yasg import openapi, views
 from rest_framework import permissions, routers
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+    TokenVerifyView,
+)
 
 import app.patient.views
 import app.report.views
@@ -30,6 +35,9 @@ schema_view = views.get_schema_view(
 
 urlpatterns = [
     path("api/", include(router.urls)),
+    path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
+    path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
+    path("api/token/verify/", TokenVerifyView.as_view(), name="token_verify"),
     path("admin/", admin.site.urls),
     path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
     path("__debug__/", include("debug_toolbar.urls")),
