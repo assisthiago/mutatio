@@ -1,4 +1,4 @@
 # Shift Report
 
 ## About
-System that helps to manage a speech therapy team.
+System that helps to manage a swallowing team.
