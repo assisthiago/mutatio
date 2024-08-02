@@ -10,6 +10,7 @@ from rest_framework_simplejwt.views import (
     TokenVerifyView,
 )
 
+import app.auth.views
 import app.patient.views
 import app.report.views
 
@@ -35,11 +36,11 @@ schema_view = views.get_schema_view(
 
 urlpatterns = [
     path("api/", include(router.urls)),
-    path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
-    path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
-    path("api/token/verify/", TokenVerifyView.as_view(), name="token_verify"),
+    path("api/auth/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
+    path("api/auth/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
+    path("api/auth/verify/", TokenVerifyView.as_view(), name="token_verify"),
+    path("api/auth/logout/", app.auth.views.LogoutView.as_view(), name="logout"),
     path("admin/", admin.site.urls),
-    path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
     path("__debug__/", include("debug_toolbar.urls")),
     path(
         "swagger<format>/", schema_view.without_ui(cache_timeout=0), name="schema-json"
