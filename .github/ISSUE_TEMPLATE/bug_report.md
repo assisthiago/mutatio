@@ -2,7 +2,7 @@
 name: Bug report
 about: Ora pro nobis, Sancta Dei Genetrix.
 title: ''
-labels: bug
+labels: [bug, back-end]
 assignees: assisthiago
 
 ---
