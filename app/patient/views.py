@@ -1,4 +1,4 @@
-from rest_framework import permissions, viewsets
+from rest_framework import filters, permissions, viewsets
 
 from app.patient.models import Diagnosis, Patient, Room
 from app.patient.serializers import (
@@ -9,10 +9,12 @@ from app.patient.serializers import (
 
 
 class DiagnosisViewSet(viewsets.ModelViewSet):
-    ordering = ["name"]
     queryset = Diagnosis.objects.all()
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = DiagnosisSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ["name"]
+    ordering = ["name"]
 
 
 class PatientViewSet(viewsets.ModelViewSet):
