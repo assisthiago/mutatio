@@ -9,18 +9,19 @@ from app.patient.serializers import (
 
 
 class DiagnosisViewSet(viewsets.ModelViewSet):
+    ordering = ["name"]
     queryset = Diagnosis.objects.all()
-    serializer_class = DiagnosisSerializer
     permission_classes = [permissions.IsAuthenticated]
+    serializer_class = DiagnosisSerializer
 
 
 class PatientViewSet(viewsets.ModelViewSet):
     queryset = Patient.objects.all()
-    serializer_class = PatientSerializer
     permission_classes = [permissions.IsAuthenticated]
+    serializer_class = PatientSerializer
 
 
 class RoomViewSet(viewsets.ModelViewSet):
     queryset = Room.objects.all()
-    serializer_class = RoomSerializer
     permission_classes = [permissions.IsAuthenticated]
+    serializer_class = RoomSerializer

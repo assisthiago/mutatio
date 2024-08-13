@@ -17,6 +17,7 @@ class Diagnosis(models.Model):
 
     class Meta:
         db_table = "diagnosis"
+        ordering = ("name",)
         verbose_name = "diagnóstico"
         verbose_name_plural = "diagnósticos"
 

@@ -144,7 +144,12 @@ REST_FRAMEWORK = {
         "rest_framework_simplejwt.authentication.JWTAuthentication",
         "rest_framework.authentication.SessionAuthentication",
     ],
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "PAGE_SIZE": 20,
+    "DATETIME_FORMAT": "%d/%m/%Y %H:%M:%S",
+    "DATE_FORMAT": "%d/%m/%Y",
 }
+
 
 # CORS Headers
 CORS_ALLOWED_ORIGINS = [
