@@ -1,8 +1,10 @@
-**Link your feature.**
-Close <paste here the issue's link.>.
+**Related issue.**
+*If this pull request is related to an existing issue, please mention it here.*
 
-**Describe the solution you did.**
-A clear and concise description of what you did.
+**Checklist.**
+- [ ] I have tested the changes locally.
+- [ ] I have followed the coding style guidelines.
+- [ ] I have updated relevant tests.
 
-**Additional context.**
-Add any other context or screenshots about the feature here.
+**Screenshots (optional).**
+*If the changes include any visual modifications, please provide screenshots here.*
