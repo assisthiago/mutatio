@@ -27,3 +27,6 @@ class RoomViewSet(viewsets.ModelViewSet):
     queryset = Room.objects.all()
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = RoomSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ["ward"]
+    ordering = ["ward", "bed"]

@@ -16,6 +16,8 @@ class PatientSerializer(serializers.ModelSerializer):
 
 
 class RoomSerializer(serializers.ModelSerializer):
+    patient = PatientSerializer(many=False, read_only=True)
+
     class Meta:
         model = Room
         fields = "__all__"
