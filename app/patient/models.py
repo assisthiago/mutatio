@@ -38,6 +38,7 @@ class Room(models.Model):
                 name="unique_room",
             )
         ]
+        ordering = ("ward", "bed")
         verbose_name = "quarto"
         verbose_name_plural = "quartos"
 
