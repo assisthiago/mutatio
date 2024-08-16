@@ -21,6 +21,9 @@ class PatientViewSet(viewsets.ModelViewSet):
     queryset = Patient.objects.all()
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = PatientSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ["name", "medical_record"]
+    ordering = ["name", "age"]
 
 
 class RoomViewSet(viewsets.ModelViewSet):
