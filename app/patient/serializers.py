@@ -10,6 +10,8 @@ class DiagnosisSerializer(serializers.ModelSerializer):
 
 
 class PatientSerializer(serializers.ModelSerializer):
+    room__str = serializers.CharField(source="room", read_only=True)
+
     class Meta:
         model = Patient
         fields = "__all__"

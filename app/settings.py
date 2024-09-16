@@ -150,6 +150,7 @@ REST_FRAMEWORK = {
     "PAGE_SIZE": 20,
     "DATETIME_FORMAT": "%d/%m/%Y %H:%M:%S",
     "DATE_FORMAT": "%d/%m/%Y",
+    "EXCEPTION_HANDLER": "app.utils.custom_exception_handler",
 }
 
 # CORS Headers
