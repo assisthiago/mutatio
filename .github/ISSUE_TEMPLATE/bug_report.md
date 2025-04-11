@@ -1,30 +1,23 @@
 ---
-name: Bug report
-about: Ora pro nobis, Sancta Dei Genetrix.
-title: ''
-labels: [bug, back-end]
-assignees: assisthiago
-
+name: Registrar um incidente
+about: Registre um incidente em produção que está afetando o comportamento esperado do sistema.
+title: '[NOME DA TELA] TÍTULO DO INCIDENTE'
+labels: [bug]
+assignees: ''
 ---
 
-**Describe the bug.**
-A clear and concise description of what the bug is.
+**Descrição.**
+_Uma descrição clara e concisa do que é o bug._
 
-**To Reproduce.**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '...'
-3. Scroll down to '...'
-4. See error
+**Comportamento esperado.**
+_Uma descrição clara e concisa do que você esperava que acontecesse._
+ 
+**Como reproduzir.**
+_Etapas para reproduzir o comportamento:_
+1. Acesse o link '...'
+2. Clique nos botões '...'
+3. Preencha com o valor '...'
+4. Veja o erro.
 
-**Expected behavior.**
-A clear and concise description of what you expected to happen.
-
-**Screenshots.**
-If applicable, add screenshots to help explain your problem.
-
-**Additional context.**
-Add any other context about the problem here.
-
-**Tasks.**
-- [ ] Add any task here to help guidance.
+**Captura de telas.**
+_Se aplicável, adicione capturas de tela para ajudar a explicar seu problema. Basta copiar e colar as imagens._
